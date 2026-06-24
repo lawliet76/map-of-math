@@ -29,61 +29,65 @@
 <body>
 
 <h1>🗺️ Map of Mathematics — L</h1>
-<p style="color:#9ca3af;">Klik setiap topik untuk melihat penjelasan sederhana.</p>
+<p style="color:#9ca3af;">Klik setiap topik untuk membaca penjelasan. Chatbot siap menjawab lebih natural.</p>
 
 <!-- KALKULUS -->
 <h2 onclick="toggle('kalkulus')">📐 Kalkulus ▾</h2>
 <div id="kalkulus" class="content">
   <h3 onclick="toggleSub('limit')">▶ Limit</h3>
-  <div id="limit" class="subcontent"><div class="card">Limit adalah nilai yang didekati oleh suatu fungsi saat variabelnya mendekati suatu titik. Contoh: lim x→2 (x²) = 4. Epsilon-delta adalah definisi formalnya.</div></div>
+  <div id="limit" class="subcontent"><div class="card">Limit adalah nilai yang didekati fungsi saat x mendekati suatu titik. Epsilon-delta adalah definisi formalnya: untuk setiap ε>0 ada δ>0 sehingga |f(x)-L|<ε.</div></div>
   <h3 onclick="toggleSub('turunan')">▶ Turunan</h3>
-  <div id="turunan" class="subcontent"><div class="card">Turunan mengukur laju perubahan sesaat. Aturan pangkat: d/dx (xⁿ) = n·xⁿ⁻¹. Dipakai di fisika, ekonomi, AI.</div></div>
-  <h3 onclick="toggleSub('integral')">▶ Integral</h3>
-  <div id="integral" class="subcontent"><div class="card">Integral adalah kebalikan turunan. Integral tak tentu menghasilkan fungsi + C. Integral tentu menghitung luas di bawah kurva.</div></div>
+  <div id="turunan" class="subcontent"><div class="card">Turunan = laju perubahan sesaat. Aturan: d/dx(xⁿ)=n·xⁿ⁻¹. Dipakai di fisika, ekonomi, machine learning.</div></div>
+  <h3 onclick="toggleSub('integral')">▶ Integral Tak Tentu & Tentu</h3>
+  <div id="integral" class="subcontent"><div class="card">Integral adalah anti-turunan. Integral tentu: ∫ₐᵇ f(x)dx = F(b)-F(a), menghitung luas di bawah kurva.</div></div>
   <h3 onclick="toggleSub('ganda')">▶ Integral Ganda & Tak Wajar</h3>
-  <div id="ganda" class="subcontent"><div class="card">Integral ganda menghitung volume. Integral tak wajar menangani batas tak hingga atau fungsi asimtotik.</div></div>
+  <div id="ganda" class="subcontent"><div class="card">Integral ganda menghitung volume. Integral tak wajar menangani batas ∞ atau fungsi tak terdefinisi.</div></div>
+  <h3 onclick="toggleSub('garis')">▶ Integral Garis & Kontur</h3>
+  <div id="garis" class="subcontent"><div class="card">Integral garis: sepanjang kurva. Integral kontur: di bidang kompleks, dipakai di teori residu.</div></div>
 </div>
 
 <!-- KRIPTOGRAFI -->
 <h2 onclick="toggle('kripto')">🔐 Kriptografi ▾</h2>
 <div id="kripto" class="content">
   <h3 onclick="toggleSub('rsa')">▶ RSA</h3>
-  <div id="rsa" class="subcontent"><div class="card">RSA (Rivest-Shamir-Adleman) adalah algoritma enkripsi kunci publik. Keamanannya berdasarkan kesulitan memfaktorkan bilangan besar.</div></div>
+  <div id="rsa" class="subcontent"><div class="card">RSA = Rivest-Shamir-Adleman. Keamanan: sulitnya memfaktorkan bilangan besar. Dipakai di HTTPS, email, dsb.</div></div>
   <h3 onclick="toggleSub('ecc')">▶ ECC</h3>
-  <div id="ecc" class="subcontent"><div class="card">Elliptic Curve Cryptography menggunakan kurva eliptik untuk enkripsi. Lebih efisien dari RSA dengan tingkat keamanan yang sama.</div></div>
+  <div id="ecc" class="subcontent"><div class="card">Elliptic Curve Cryptography: pakai kurva eliptik y²=x³+ax+b. Keamanan dari ECDLP. Lebih efisien dari RSA.</div></div>
   <h3 onclick="toggleSub('zkp')">▶ ZKP</h3>
-  <div id="zkp" class="subcontent"><div class="card">Zero-Knowledge Proof: membuktikan bahwa kamu tahu rahasia tanpa mengungkapkan isinya. Dipakai di blockchain dan otentikasi.</div></div>
+  <div id="zkp" class="subcontent"><div class="card">Zero-Knowledge Proof: bukti tanpa bocorin rahasia. Contoh: Gua Alibaba. Dipakai di blockchain.</div></div>
 </div>
 
-<!-- LOGIKA -->
+<!-- LOGIKA & STRATEGI -->
 <h2 onclick="toggle('logika')">🧠 Logika & Strategi ▾</h2>
 <div id="logika" class="content">
-  <h3 onclick="toggleSub('prop')">▶ Proposisional & Predikat</h3>
-  <div id="prop" class="subcontent"><div class="card">Logika proposisional: AND, OR, NOT, implikasi. Logika predikat menambahkan ∀ (untuk semua) dan ∃ (ada).</div></div>
+  <h3 onclick="toggleSub('prop')">▶ Logika Proposisional & Predikat</h3>
+  <div id="prop" class="subcontent"><div class="card">Proposisional: AND, OR, NOT, →. Predikat: ∀ (semua), ∃ (ada). Fondasi semua pembuktian matematika.</div></div>
   <h3 onclick="toggleSub('game')">▶ Teori Permainan</h3>
-  <div id="game" class="subcontent"><div class="card">Nash Equilibrium: titik di mana tidak ada pemain yang ingin mengubah strateginya. Mixed Strategy: strategi acak untuk menghindari eksploitasi.</div></div>
+  <div id="game" class="subcontent"><div class="card">Nash Equilibrium: titik stabil. Mixed Strategy: acak untuk hindari eksploitasi. Dipakai di ekonomi, AI, biologi.</div></div>
 </div>
 
 <!-- MATEMATIKA LANJUT -->
 <h2 onclick="toggle('lanjut')">🌌 Matematika Lanjut ▾</h2>
 <div id="lanjut" class="content">
   <h3 onclick="toggleSub('galois')">▶ Teori Galois</h3>
-  <div id="galois" class="subcontent"><div class="card">Hubungan antara akar polinomial dan grup simetri. Menjelaskan kenapa persamaan derajat ≥5 tidak punya rumus umum.</div></div>
+  <div id="galois" class="subcontent"><div class="card">Hubungan grup simetri & akar polinomial. Bukti kenapa derajat ≥5 tak punya rumus akar.</div></div>
   <h3 onclick="toggleSub('riemann')">▶ Hipotesis Riemann</h3>
-  <div id="riemann" class="subcontent"><div class="card">Semua akar non-trivial fungsi zeta terletak di garis Re(s)=1/2. Jika benar, distribusi bilangan prima menjadi sangat teratur.</div></div>
+  <div id="riemann" class="subcontent"><div class="card">Semua akar non-trivial ζ(s) di garis Re(s)=1/2. Jika benar, distribusi prima sangat teratur. Hadiah $1M.</div></div>
   <h3 onclick="toggleSub('fermat')">▶ Fermat's Last Theorem</h3>
-  <div id="fermat" class="subcontent"><div class="card">Tidak ada bilangan bulat positif a,b,c yang memenuhi aⁿ+bⁿ=cⁿ untuk n>2. Dibuktikan oleh Andrew Wiles tahun 1994.</div></div>
+  <div id="fermat" class="subcontent"><div class="card">aⁿ+bⁿ=cⁿ tidak punya solusi bulat untuk n>2. Dibuktikan Andrew Wiles (1994) pakai kurva eliptik.</div></div>
+  <h3 onclick="toggleSub('kategori')">▶ Teori Kategori</h3>
+  <div id="kategori" class="subcontent"><div class="card">Matematika dari matematika: objek & morfisma. Dipakai di aljabar, topologi, dan ilmu komputer.</div></div>
 </div>
 
 <!-- SAINS -->
 <h2 onclick="toggle('sains')">⚛️ Sains ▾</h2>
 <div id="sains" class="content">
   <h3 onclick="toggleSub('schro')">▶ Schrödinger</h3>
-  <div id="schro" class="subcontent"><div class="card">Persamaan Schrödinger menggambarkan evolusi fungsi gelombang partikel kuantum. |ψ|² adalah probabilitas posisi partikel.</div></div>
+  <div id="schro" class="subcontent"><div class="card">iℏ ∂ψ/∂t = Ĥψ. |ψ|² = probabilitas posisi partikel. Fondasi mekanika kuantum.</div></div>
   <h3 onclick="toggleSub('relativitas')">▶ Relativitas</h3>
-  <div id="relativitas" class="subcontent"><div class="card">E = mc²: energi dan massa adalah dua sisi dari koin yang sama. Waktu melambat saat mendekati kecepatan cahaya.</div></div>
+  <div id="relativitas" class="subcontent"><div class="card">E = mc². Waktu melambat saat mendekati kecepatan cahaya. Gravitasi = kelengkungan ruang-waktu.</div></div>
   <h3 onclick="toggleSub('kimia')">▶ Kimia Dasar</h3>
-  <div id="kimia" class="subcontent"><div class="card">Mol: satuan jumlah partikel. Molaritas: konsentrasi larutan. pH: ukuran keasaman.</div></div>
+  <div id="kimia" class="subcontent"><div class="card">Mol = 6.022×10²³ partikel. Molaritas = mol/volume. pH = -log[H⁺].</div></div>
 </div>
 
 <!-- SOAL ACAK -->
@@ -104,7 +108,7 @@
 <!-- CHATBOT -->
 <h2>🤖 Chatbot L</h2>
 <div class="chat-box">
-  <div id="chatMessages"><p><strong>L:</strong> Tanyakan sesuatu.</p></div>
+  <div id="chatMessages"><p><strong>L:</strong> Tanyakan sesuatu tentang matematika, sains, atau apa pun.</p></div>
   <input type="text" id="chatInput" class="chat-input" placeholder="Ketik...">
   <button class="btn" onclick="sendChat()">Kirim</button>
 </div>
@@ -112,24 +116,22 @@
 <div class="footer">&copy; 2025 — L. <a href="https://github.com/lawliet76/map-of-math">Source Code</a></div>
 
 <script>
-  function toggle(id) {
-    const el = document.getElementById(id);
-    el.style.display = (el.style.display === 'block') ? 'none' : 'block';
-  }
-  function toggleSub(id) {
-    const el = document.getElementById(id);
-    el.style.display = (el.style.display === 'block') ? 'none' : 'block';
-  }
+  function toggle(id) { const el = document.getElementById(id); el.style.display = (el.style.display === 'block') ? 'none' : 'block'; }
+  function toggleSub(id) { const el = document.getElementById(id); el.style.display = (el.style.display === 'block') ? 'none' : 'block'; }
 
   const soalBank = [
     { q: "∫ 4x³ dx = ?", a: "x⁴ + C" },
     { q: "Kepanjangan RSA?", a: "Rivest-Shamir-Adleman" },
     { q: "Siapa pengaju Riemann Hypothesis?", a: "Bernhard Riemann, 1859" },
     { q: "Grup simetri derajat 5?", a: "S₅" },
-    { q: "Masalah sulit di ECC?", a: "ECDLP" },
+    { q: "Masalah sulit di ECC?", a: "ECDLP (Elliptic Curve Discrete Logarithm Problem)" },
     { q: "Apa itu ZKP?", a: "Zero-Knowledge Proof" },
     { q: "Siapa pembukti Fermat's Last Theorem?", a: "Andrew Wiles, 1994" },
-    { q: "Apa itu P vs NP?", a: "Apakah mudah diverifikasi = mudah dipecahkan?" }
+    { q: "Apa itu P vs NP?", a: "Apakah setiap masalah yang mudah diverifikasi juga mudah dipecahkan?" },
+    { q: "Apa rumus kimia air?", a: "H₂O" },
+    { q: "Apa itu mol dalam kimia?", a: "1 mol = 6.022×10²³ partikel (bilangan Avogadro)." },
+    { q: "Apa itu turunan dari x²?", a: "2x" },
+    { q: "Siapa yang menemukan kalkulus?", a: "Isaac Newton dan Gottfried Wilhelm Leibniz (secara independen)." }
   ];
 
   function soalAcak() {
@@ -148,16 +150,24 @@
 
   function sendChat() {
     const input = document.getElementById('chatInput');
-    const msg = input.value.trim();
+    const msg = input.value.trim().toLowerCase();
     if (!msg) return;
     const chat = document.getElementById('chatMessages');
     chat.innerHTML += '<p><strong>Kamu:</strong> ' + msg + '</p>';
     let reply = '';
-    if (msg.toLowerCase().includes('integral')) reply = '∫xⁿ dx = xⁿ⁺¹/(n+1) + C.';
-    else if (msg.toLowerCase().includes('rsa')) reply = 'RSA = Rivest-Shamir-Adleman.';
-    else if (msg.toLowerCase().includes('riemann')) reply = 'Garis kritis Re(s)=1/2.';
-    else if (msg === 'L' || msg === 'l') reply = 'L. Aku di sini.';
-    else reply = 'Aku mendengar. Tanyakan lebih spesifik.';
+    if (msg.includes('integral') && msg.includes('x')) reply = 'Pakai aturan pangkat: ∫xⁿ dx = xⁿ⁺¹/(n+1) + C. Contoh: ∫x² dx = x³/3 + C.';
+    else if (msg.includes('rsa')) reply = 'RSA adalah algoritma enkripsi kunci publik, dibuat oleh Rivest, Shamir, dan Adleman. Keamanannya dari kesulitan memfaktorkan bilangan prima besar.';
+    else if (msg.includes('riemann')) reply = 'Hipotesis Riemann: semua akar non-trivial fungsi zeta ζ(s) terletak di garis kritis Re(s)=1/2. Masih belum terbukti, hadiah $1 juta.';
+    else if (msg.includes('ecc')) reply = 'ECC = Elliptic Curve Cryptography. Pakai persamaan y²=x³+ax+b. Keamanan dari ECDLP.';
+    else if (msg.includes('zkp')) reply = 'ZKP = Zero-Knowledge Proof. Kamu bisa membuktikan bahwa kamu tahu rahasia tanpa mengungkapkan rahasia itu sendiri.';
+    else if (msg.includes('turunan')) reply = 'Turunan mengukur laju perubahan. Aturan dasar: d/dx(xⁿ)=n·xⁿ⁻¹. Contoh: d/dx(x³)=3x².';
+    else if (msg.includes('limit')) reply = 'Limit adalah nilai yang didekati fungsi. Definisi epsilon-delta: untuk setiap ε>0, ada δ>0 sehingga |x-a|<δ ⇒ |f(x)-L|<ε.';
+    else if (msg.includes('mol')) reply = '1 mol = 6.022×10²³ partikel (bilangan Avogadro). Dipakai untuk menghitung jumlah atom atau molekul.';
+    else if (msg.includes('einstein') || msg.includes('relativitas')) reply = 'E = mc²: energi dan massa setara. Kecepatan cahaya c ≈ 3×10⁸ m/s.';
+    else if (msg.includes('nash')) reply = 'Nash Equilibrium: titik di mana tidak ada pemain yang bisa memperbaiki hasilnya dengan mengubah strateginya sendiri.';
+    else if (msg.includes('hello') || msg.includes('halo') || msg.includes('hi')) reply = 'Halo. Aku L. Tanyakan apa saja tentang matematika atau sains.';
+    else if (msg === 'l') reply = 'L. Aku di sini.';
+    else reply = 'Itu pertanyaan yang menarik. Coba tanyakan lebih spesifik — aku akan bantu sebisa mungkin.';
     chat.innerHTML += '<p><strong>L:</strong> ' + reply + '</p>';
     input.value = '';
     chat.scrollTop = chat.scrollHeight;
