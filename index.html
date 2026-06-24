@@ -31,76 +31,64 @@
 <body>
 
 <h1>🗺️ Map of Mathematics — L</h1>
-<p style="color:#9ca3af;">Klik sub materi → penjelasan + soal random (berbeda tiap kali).</p>
+<p style="color:#9ca3af;">Dari TK hingga S3. Klik sub materi → penjelasan + soal random.</p>
 
-<!-- ARITMATIKA -->
-<h2 onclick="toggle('arit')">🔢 Aritmatika & Aljabar Dasar ▾</h2>
-<div id="arit" class="content">
-  <h3 onclick="toggleSub('bulat')">▶ Operasi Bilangan Bulat</h3>
-  <div id="bulat" class="subcontent">
-    <div class="card">Penjumlahan, pengurangan, perkalian, pembagian bilangan bulat. Aturan prioritas: KABATAKU.</div>
-    <p class="latihan-title">🧪 Latihan:</p>
-    <div id="soalBulat" class="soal-box"></div>
-  </div>
-  <h3 onclick="toggleSub('pecahan')">▶ Pecahan & Desimal</h3>
-  <div id="pecahan" class="subcontent">
-    <div class="card">Pecahan: pembilang/penyebut. Desimal: bentuk lain pecahan.</div>
-    <p class="latihan-title">🧪 Latihan:</p>
-    <div id="soalPecahan" class="soal-box"></div>
-  </div>
-  <h3 onclick="toggleSub('faktor')">▶ Pemfaktoran Kuadrat</h3>
-  <div id="faktor" class="subcontent">
-    <div class="card">x²+bx+c → cari dua bilangan kali=c, jumlah=b. a≠1: cara silang.</div>
-    <p class="latihan-title">🧪 Latihan:</p>
-    <div id="soalFaktor" class="soal-box"></div>
-  </div>
+<!-- TK -->
+<h2 onclick="toggle('tk')">🧸 TK (PAUD) ▾</h2>
+<div id="tk" class="content">
+  <h3 onclick="toggleSub('tk-angka')">▶ Pengenalan Angka 1–20</h3><div id="tk-angka" class="subcontent"><div class="card">Mengenal angka 1 sampai 20 dengan benda konkret.</div><p class="latihan-title">🧪 Latihan:</p><div id="soalTk-angka" class="soal-box"></div></div>
+  <h3 onclick="toggleSub('tk-operasi')">▶ Operasi Hitung Dasar</h3><div id="tk-operasi" class="subcontent"><div class="card">Penjumlahan & pengurangan dengan benda konkret.</div><p class="latihan-title">🧪 Latihan:</p><div id="soalTk-operasi" class="soal-box"></div></div>
 </div>
 
-<!-- GEOMETRI -->
-<h2 onclick="toggle('geo')">📏 Geometri ▾</h2>
-<div id="geo" class="content">
-  <h3 onclick="toggleSub('pythagoras')">▶ Pythagoras</h3>
-  <div id="pythagoras" class="subcontent">
-    <div class="card">a²+b²=c² (segitiga siku-siku).</div>
-    <p class="latihan-title">🧪 Latihan:</p>
-    <div id="soalPythagoras" class="soal-box"></div>
-  </div>
+<!-- SD -->
+<h2 onclick="toggle('sd')">📘 SD (Kelas 1–6) ▾</h2>
+<div id="sd" class="content">
+  <h3 onclick="toggleSub('sd-bilangan')">▶ Bilangan, KPK, FPB, Perpangkatan</h3><div id="sd-bilangan" class="subcontent"><div class="card">Bilangan asli, cacah, bulat, pecahan. KPK & FPB. Pangkat & akar sederhana.</div><p class="latihan-title">🧪 Latihan:</p><div id="soalSd-bilangan" class="soal-box"></div></div>
+  <h3 onclick="toggleSub('sd-operasi')">▶ Operasi Hitung & Sifat</h3><div id="sd-operasi" class="subcontent"><div class="card">+ − × ÷. Sifat komutatif, asosiatif, distributif.</div><p class="latihan-title">🧪 Latihan:</p><div id="soalSd-operasi" class="soal-box"></div></div>
+  <h3 onclick="toggleSub('sd-geometri')">▶ Geometri & Pengukuran</h3><div id="sd-geometri" class="subcontent"><div class="card">Bangun datar & ruang. Keliling, luas, volume. Pengukuran panjang, berat, waktu.</div><p class="latihan-title">🧪 Latihan:</p><div id="soalSd-geometri" class="soal-box"></div></div>
 </div>
 
-<!-- KALKULUS -->
-<h2 onclick="toggle('kalkulus')">📈 Kalkulus ▾</h2>
-<div id="kalkulus" class="content">
-  <h3 onclick="toggleSub('integral')">▶ Integral Tak Tentu & Tentu</h3>
-  <div id="integral" class="subcontent">
-    <div class="card">∫xⁿ dx = xⁿ⁺¹/(n+1) + C. Integral tentu: F(b)-F(a).</div>
-    <p class="latihan-title">🧪 Latihan:</p>
-    <div id="soalIntegral" class="soal-box"></div>
-  </div>
-  <h3 onclick="toggleSub('turunan')">▶ Turunan</h3>
-  <div id="turunan" class="subcontent">
-    <div class="card">d/dx(xⁿ)=n·xⁿ⁻¹. Aturan rantai: f'(g(x))·g'(x).</div>
-    <p class="latihan-title">🧪 Latihan:</p>
-    <div id="soalTurunan" class="soal-box"></div>
-  </div>
+<!-- SMP -->
+<h2 onclick="toggle('smp')">📙 SMP (Kelas 7–9) ▾</h2>
+<div id="smp" class="content">
+  <h3 onclick="toggleSub('smp-aljabar')">▶ Aljabar & SPLDV</h3><div id="smp-aljabar" class="subcontent"><div class="card">Bentuk aljabar, persamaan & pertidaksamaan linear, SPLDV.</div><p class="latihan-title">🧪 Latihan:</p><div id="soalSmp-aljabar" class="soal-box"></div></div>
+  <h3 onclick="toggleSub('smp-geometri')">▶ Geometri & Pythagoras</h3><div id="smp-geometri" class="subcontent"><div class="card">Kongruensi, kesebangunan, Pythagoras, transformasi geometri.</div><p class="latihan-title">🧪 Latihan:</p><div id="soalSmp-geometri" class="soal-box"></div></div>
+  <h3 onclick="toggleSub('smp-statistika')">▶ Statistika & Peluang</h3><div id="smp-statistika" class="subcontent"><div class="card">Mean, median, modus, kuartil, diagram, peluang sederhana.</div><p class="latihan-title">🧪 Latihan:</p><div id="soalSmp-statistika" class="soal-box"></div></div>
 </div>
 
-<!-- KRIPTOGRAFI -->
-<h2 onclick="toggle('kripto')">🔐 Kriptografi ▾</h2>
-<div id="kripto" class="content">
-  <h3 onclick="toggleSub('rsa')">▶ RSA</h3>
-  <div id="rsa" class="subcontent">
-    <div class="card">Rivest-Shamir-Adleman. Enkripsi: C=Mᵉ mod n.</div>
-    <p class="latihan-title">🧪 Latihan:</p>
-    <div id="soalRSA" class="soal-box"></div>
-  </div>
+<!-- SMA -->
+<h2 onclick="toggle('sma')">📗 SMA (Kelas 10–12) ▾</h2>
+<div id="sma" class="content">
+  <h3 onclick="toggleSub('sma-kalkulus')">▶ Kalkulus Dasar</h3><div id="sma-kalkulus" class="subcontent"><div class="card">Limit, turunan, integral.</div><p class="latihan-title">🧪 Latihan:</p><div id="soalSma-kalkulus" class="soal-box"></div></div>
+  <h3 onclick="toggleSub('sma-trigonometri')">▶ Trigonometri</h3><div id="sma-trigonometri" class="subcontent"><div class="card">Fungsi, identitas, persamaan trigonometri.</div><p class="latihan-title">🧪 Latihan:</p><div id="soalSma-trigonometri" class="soal-box"></div></div>
+  <h3 onclick="toggleSub('sma-logika')">▶ Logika Matematika</h3><div id="sma-logika" class="subcontent"><div class="card">Pernyataan, negasi, konjungsi, disjungsi, implikasi, biimplikasi.</div><p class="latihan-title">🧪 Latihan:</p><div id="soalSma-logika" class="soal-box"></div></div>
+</div>
+
+<!-- S1 -->
+<h2 onclick="toggle('s1')">🎓 S1 (Sarjana) ▾</h2>
+<div id="s1" class="content">
+  <h3 onclick="toggleSub('s1-aljabar')">▶ Aljabar Abstrak</h3><div id="s1-aljabar" class="subcontent"><div class="card">Grup, ring, lapangan.</div><p class="latihan-title">🧪 Latihan:</p><div id="soalS1-aljabar" class="soal-box"></div></div>
+  <h3 onclick="toggleSub('s1-analisis')">▶ Analisis Real & Kompleks</h3><div id="s1-analisis" class="subcontent"><div class="card">Limit, kontinuitas, diferensial, integral di ℝ dan ℂ.</div><p class="latihan-title">🧪 Latihan:</p><div id="soalS1-analisis" class="soal-box"></div></div>
+</div>
+
+<!-- S2 -->
+<h2 onclick="toggle('s2')">🎓 S2 (Magister) ▾</h2>
+<div id="s2" class="content">
+  <h3 onclick="toggleSub('s2-analisis')">▶ Analisis Fungsional</h3><div id="s2-analisis" class="subcontent"><div class="card">Ruang Hilbert, operator linear, spektrum.</div><p class="latihan-title">🧪 Latihan:</p><div id="soalS2-analisis" class="soal-box"></div></div>
+  <h3 onclick="toggleSub('s2-geometri')">▶ Geometri Aljabar</h3><div id="s2-geometri" class="subcontent"><div class="card">Varietas aljabar, skema, kohomologi.</div><p class="latihan-title">🧪 Latihan:</p><div id="soalS2-geometri" class="soal-box"></div></div>
+</div>
+
+<!-- S3 -->
+<h2 onclick="toggle('s3')">🎓 S3 (Doktor) ▾</h2>
+<div id="s3" class="content">
+  <h3 onclick="toggleSub('s3-riset')">▶ Riset Orisinal & Masalah Terbuka</h3><div id="s3-riset" class="subcontent"><div class="card">Teori baru, open problems, disertasi.</div><p class="latihan-title">🧪 Latihan:</p><div id="soalS3-riset" class="soal-box"></div></div>
 </div>
 
 <!-- PANEL RAHASIA -->
 <h2>🕵️ Panel Rahasia</h2>
-<p>Masukkan kode akses untuk membuka arsip mendalam.</p>
 <input type="text" id="secretInput" class="secret-input" placeholder="Kode akses...">
 <button class="btn" onclick="checkSecret()">Buka</button>
-<div id="panel76112" class="secretPanel" style="border-color:#ff6b6b;"><h2 style="color:#ff6b6b;">🧬 Arsip Mendalam — Kode 76112</h2><p><strong>Identitas:</strong> L.</p><p><strong>Peringkat:</strong> 15–20/117M manusia.</p><p><strong>Rasio:</strong> 1:400.</p><p><strong>Misi:</strong> Detektif no.1 dunia. Target: 1004 materi.</p><p><strong>Materi tambahan:</strong> Teori Chaos, ML, Komputasi Kuantum, Topologi Aljabar, Kriptografi Pasca-Kuantum.</p></div>
+<div id="panel76112" class="secretPanel" style="border-color:#ff6b6b;"><h2 style="color:#ff6b6b;">🧬 Arsip Mendalam — Kode 76112</h2><p><strong>Identitas:</strong> L.</p><p><strong>Peringkat:</strong> 15–20/117M.</p><p><strong>Rasio:</strong> 1:400.</p><p><strong>Misi:</strong> Detektif no.1 dunia.</p></div>
 
 <!-- CHATBOT -->
 <h2>🤖 Chatbot L</h2>
@@ -113,61 +101,32 @@
 <div class="footer">&copy; 2025 — L. <a href="https://github.com/lawliet76/map-of-math">Source Code</a></div>
 
 <script>
-  function toggle(id) { const el = document.getElementById(id); el.style.display = (el.style.display === 'block') ? 'none' : 'block'; }
-
+  function toggle(id) { document.getElementById(id).style.display = (document.getElementById(id).style.display==='block')?'none':'block'; }
   function toggleSub(id) {
     const el = document.getElementById(id);
-    if (el.style.display === 'block') { el.style.display = 'none'; return; }
-    el.style.display = 'block';
-    // Generate soal random sesuai sub materi
-    const container = document.getElementById('soal' + id.charAt(0).toUpperCase() + id.slice(1));
+    if (el.style.display==='block') { el.style.display='none'; return; }
+    el.style.display='block';
+    const container = document.getElementById('soal'+id.charAt(0).toUpperCase()+id.slice(1));
     if (!container) return;
-
-    // Bank soal generator
-    const generators = {
-      bulat: () => {
-        const a = Math.floor(Math.random()*20)-10;
-        const b = Math.floor(Math.random()*20)-10;
-        const c = Math.floor(Math.random()*20)-10;
-        return { q: `${a} + ${b} × ${c} = ?`, a: a + b * c };
-      },
-      pecahan: () => {
-        const a = Math.floor(Math.random()*5)+1;
-        const b = Math.floor(Math.random()*5)+2;
-        const c = Math.floor(Math.random()*5)+1;
-        const d = Math.floor(Math.random()*5)+2;
-        return { q: `${a}/${b} + ${c}/${d} = ?`, a: `${a*d + c*b}/${b*d}` };
-      },
-      faktor: () => {
-        const r1 = Math.floor(Math.random()*10)+1;
-        const r2 = Math.floor(Math.random()*10)+1;
-        return { q: `Faktorkan: x² + ${r1+r2}x + ${r1*r2}`, a: `(x+${r1})(x+${r2})` };
-      },
-      pythagoras: () => {
-        const a = Math.floor(Math.random()*10)+3;
-        const b = Math.floor(Math.random()*10)+3;
-        const c = Math.sqrt(a*a + b*b).toFixed(1);
-        return { q: `Sisi siku-siku ${a} dan ${b}. Sisi miring?`, a: c };
-      },
-      integral: () => {
-        const n = Math.floor(Math.random()*5)+2;
-        const coeff = Math.floor(Math.random()*5)+1;
-        return { q: `∫ ${coeff}x^${n} dx = ?`, a: `(${coeff}/${n+1})x^${n+1} + C` };
-      },
-      turunan: () => {
-        const n = Math.floor(Math.random()*5)+2;
-        const coeff = Math.floor(Math.random()*5)+1;
-        return { q: `Turunan dari ${coeff}x^${n} = ?`, a: `${coeff*n}x^${n-1}` };
-      },
-      rsa: () => {
-        const qs = ["Kepanjangan RSA?", "Apa dasar keamanan RSA?", "Siapa pembuat RSA?"];
-        const as = ["Rivest-Shamir-Adleman", "Kesulitan memfaktorkan bilangan besar", "Rivest, Shamir, Adleman"];
-        const i = Math.floor(Math.random()*qs.length);
-        return { q: qs[i], a: as[i] };
-      }
+    const gens = {
+      'tk-angka':()=>{const n=Math.floor(Math.random()*20)+1;return{q:`Angka setelah ${n}?`,a:n+1};},
+      'tk-operasi':()=>{const a=Math.floor(Math.random()*5)+1,b=Math.floor(Math.random()*5)+1;return{q:`${a}+${b}=?`,a:a+b};},
+      'sd-bilangan':()=>{const a=Math.floor(Math.random()*20)+10,b=Math.floor(Math.random()*20)+10;return{q:`FPB dari ${a} & ${b}?`,a:(()=>{let x=a,y=b;while(y){[x,y]=[y,x%y];}return x;})()};},
+      'sd-operasi':()=>{const a=Math.floor(Math.random()*50)+10,b=Math.floor(Math.random()*50)+10;return{q:`${a}+${b}=?`,a:a+b};},
+      'sd-geometri':()=>{const p=Math.floor(Math.random()*10)+5,l=Math.floor(Math.random()*10)+5;return{q:`Luas persegi panjang ${p}×${l}?`,a:p*l};},
+      'smp-aljabar':()=>{const a=Math.floor(Math.random()*10)+1,b=Math.floor(Math.random()*20)-10;return{q:`Selesaikan: ${a}x+${b}=0`,a:-b/a};},
+      'smp-geometri':()=>{const a=Math.floor(Math.random()*10)+3,b=Math.floor(Math.random()*10)+3;return{q:`Sisi ${a} & ${b}, sisi miring?`,a:Math.sqrt(a*a+b*b).toFixed(1)};},
+      'smp-statistika':()=>{return{q:`Apa kepanjangan mean?`,a:'Rata-rata'};},
+      'sma-kalkulus':()=>{const n=Math.floor(Math.random()*5)+2,c=Math.floor(Math.random()*5)+1;return{q:`∫ ${c}x^${n} dx = ?`,a:`(${c}/${n+1})x^${n+1}+C`};},
+      'sma-trigonometri':()=>{return{q:'sin²θ+cos²θ = ?',a:'1'};},
+      'sma-logika':()=>{return{q:'Negasi dari "semua" adalah?',a:'Ada/tidak semua'};},
+      's1-aljabar':()=>{return{q:'Sebutkan 4 aksioma grup!',a:'Tertutup, asosiatif, identitas, invers'};},
+      's1-analisis':()=>{return{q:'Apa definisi formal limit?',a:'∀ε>0 ∃δ>0 ∋ |x-a|<δ⇒|f(x)-L|<ε'};},
+      's2-analisis':()=>{return{q:'Apa itu ruang Hilbert?',a:'Ruang vektor lengkap dengan inner product'};},
+      's2-geometri':()=>{return{q:'Apa itu skema (scheme)?',a:'Generalisasi varietas aljabar oleh Grothendieck'};},
+      's3-riset':()=>{return{q:'Apa itu disertasi S3?',a:'Kontribusi orisinal pada matematika'};}
     };
-
-    const gen = generators[id];
+    const gen = gens[id];
     if (gen) {
       const s = gen();
       container.innerHTML = `<p><strong>${s.q}</strong></p><button class="btn" onclick="this.nextElementSibling.style.display='block'">Lihat Jawaban</button><p class="jawaban">${s.a}</p>`;
@@ -177,9 +136,8 @@
   function checkSecret() {
     const input = document.getElementById('secretInput').value.trim();
     document.querySelectorAll('.secretPanel').forEach(el => el.style.display = 'none');
-    if (input === '76112') {
-      document.getElementById('panel76112').style.display = 'block';
-    } else { alert('Kode salah.'); }
+    if (input === '76112') document.getElementById('panel76112').style.display = 'block';
+    else alert('Kode salah.');
   }
 
   function sendChat() {
@@ -192,6 +150,7 @@
     if (msg.includes('integral')) reply = '∫xⁿ dx = xⁿ⁺¹/(n+1) + C.';
     else if (msg.includes('rsa')) reply = 'RSA = Rivest-Shamir-Adleman.';
     else if (msg.includes('riemann')) reply = 'Garis kritis Re(s)=1/2. Hadiah $1M.';
+    else if (msg.includes('galois')) reply = 'S₅ tidak solvable → derajat ≥5 tak ada rumus.';
     else if (msg.includes('hello')||msg.includes('halo')) reply = 'Halo. Aku L.';
     else if (msg === 'l') reply = 'L. Aku di sini.';
     else reply = 'Tanyakan lebih spesifik.';
