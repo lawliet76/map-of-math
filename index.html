@@ -6,7 +6,32 @@
   <title>Map of Mathematics — L</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: #0b0f14; color: #d1d5db; font-family: 'Segoe UI', 'Inter', system-ui, sans-serif; padding: 2rem; max-width: 1000px; margin: auto; line-height: 1.6; }
+    body { background: #0b0f14; color: #d1d5db; font-family: 'Segoe UI', 'Inter', system-ui, sans-serif; display: flex; align-items: center; justify-content: center; min-height: 100vh; }
+    #gatePanel { text-align: center; padding: 3rem; background: #161b22; border: 2px solid #3b82f6; border-radius: 16px; max-width: 400px; width: 90%; }
+    #gatePanel h1 { color: #7ee081; margin-bottom: 1rem; font-size: 1.8rem; }
+    #gatePanel p { color: #9ca3af; margin-bottom: 1.5rem; }
+    #gatePanel input { background: #0b0f14; border: 2px solid #3b82f6; color: #c9d1d9; padding: 0.6rem 1rem; border-radius: 10px; width: 100%; font-size: 1.2rem; text-align: center; margin-bottom: 1rem; letter-spacing: 4px; }
+    #gatePanel button { background: #238636; color: white; border: none; padding: 0.6rem 2rem; border-radius: 10px; cursor: pointer; font-size: 1rem; width: 100%; }
+    #gatePanel button:hover { background: #2ea043; }
+    #gateError { color: #da3633; margin-top: 0.5rem; font-size: 0.9rem; display: none; }
+    #mainContent { display: none; }
+  </style>
+</head>
+<body>
+
+<!-- GATE PANEL -->
+<div id="gatePanel">
+  <h1>🔐 Akses Terbatas</h1>
+  <p>Masukkan kode untuk membuka Map of Mathematics.</p>
+  <input type="password" id="gateInput" placeholder="****" maxlength="10">
+  <button onclick="checkGate()">Buka</button>
+  <p id="gateError">Kode salah. Akses ditolak.</p>
+</div>
+
+<!-- MAIN CONTENT (HIDDEN UNTIL UNLOCKED) -->
+<div id="mainContent">
+  <style>
+    body { display: block; padding: 2rem; max-width: 1000px; margin: auto; line-height: 1.6; }
     h1 { color: #7ee081; border-bottom: 2px solid #2d3a2c; padding-bottom: 0.5rem; margin-bottom: 1rem; }
     h2 { color: #86b8e5; margin: 2rem 0 0.5rem; border-left: 5px solid #86b8e5; padding-left: 1rem; cursor: pointer; user-select: none; }
     h2:hover { color: #a0d0ff; }
@@ -27,8 +52,6 @@
     .chat-input, .secret-input { background: #161b22; border: 1px solid #3b82f6; color: #c9d1d9; padding: 0.4rem 0.8rem; border-radius: 8px; width: 220px; }
     .latihan-title { color: #f0c040; font-weight: bold; margin-top: 1rem; }
   </style>
-</head>
-<body>
 
 <h1>🗺️ Map of Mathematics — L</h1>
 <p style="color:#9ca3af;">Dari TK hingga S3. Klik sub materi → penjelasan + soal random.</p>
@@ -86,6 +109,7 @@
   <h3 onclick="toggleSub('s1-diskrit')">▶ Matematika Diskrit</h3><div id="s1-diskrit" class="subcontent"><div class="card">Graf, pohon, algoritma, kombinatorika.</div><p class="latihan-title">🧪 Latihan:</p><div id="soalS1-diskrit" class="soal-box"></div></div>
   <h3 onclick="toggleSub('s1-kripto')">▶ Kriptografi Dasar</h3><div id="s1-kripto" class="subcontent"><div class="card">RSA, Hill Cipher, OTP, dasar keamanan.</div><p class="latihan-title">🧪 Latihan:</p><div id="soalS1-kripto" class="soal-box"></div></div>
 </div>
+
 <!-- S2 -->
 <h2 onclick="toggle('s2')">🎓 S2 (Magister) ▾</h2>
 <div id="s2" class="content">
@@ -114,7 +138,7 @@
   <h3 onclick="toggleSub('s3-topos')">▶ Topos Theory</h3><div id="s3-topos" class="subcontent"><div class="card">Generalisasi topologi, logika internal.</div><p class="latihan-title">🧪 Latihan:</p><div id="soalS3-topos" class="soal-box"></div></div>
 </div>
 
-<!-- GAME MATH CHALLENGE - SURVIVAL MODE -->
+<!-- GAME SURVIVAL -->
 <h2>🎮 Math Challenge — Survival Mode</h2>
 <p style="color:#9ca3af;">Jawab terus sampai nyawa habis! Skor makin tinggi makin sulit.</p>
 <button class="btn" onclick="startSurvival()" style="background:#da3633;">🔥 Mulai Survival</button>
@@ -125,12 +149,6 @@
   <button class="btn" onclick="submitSurvival()">Jawab</button>
   <p id="gameFeedback" style="margin-top:0.5rem;"></p>
 </div>
-
-<!-- PANEL RAHASIA -->
-<h2>🕵️ Panel Rahasia</h2>
-<input type="text" id="secretInput" class="secret-input" placeholder="Kode akses...">
-<button class="btn" onclick="checkSecret()">Buka</button>
-<div id="panel76112" class="secretPanel" style="border-color:#ff6b6b;"><h2 style="color:#ff6b6b;">🧬 Arsip Mendalam — Kode 76112</h2><p><strong>Identitas:</strong> L.</p><p><strong>Peringkat:</strong> 15–20/117M.</p><p><strong>Rasio:</strong> 1:400.</p><p><strong>Misi:</strong> Detektif no.1 dunia.</p></div>
 
 <!-- CHATBOT -->
 <h2>🤖 Chatbot L</h2>
@@ -143,9 +161,21 @@
 <div class="footer">&copy; 2025 — L. <a href="https://github.com/lawliet76/map-of-math">Source Code</a></div>
 
 <script>
-  function toggle(id) { document.getElementById(id).style.display = (document.getElementById(id).style.display==='block')?'none':'block'; }
+  // GATE CHECK
+  function checkGate() {
+    const input = document.getElementById('gateInput').value.trim();
+    if (input === '7612') {
+      document.getElementById('gatePanel').style.display = 'none';
+      document.getElementById('mainContent').style.display = 'block';
+    } else {
+      document.getElementById('gateError').style.display = 'block';
+    }
+  }
+
+  function toggle(id) { const el = document.getElementById(id); if(el) el.style.display = (el.style.display==='block')?'none':'block'; }
   function toggleSub(id) {
     const el = document.getElementById(id);
+    if (!el) return;
     if (el.style.display==='block') { el.style.display='none'; return; }
     el.style.display='block';
     const container = document.getElementById('soal'+id.charAt(0).toUpperCase()+id.slice(1));
@@ -153,162 +183,26 @@
     const gens = {
       'tk-angka':()=>{const n=Math.floor(Math.random()*20)+1;return{q:`Angka setelah ${n}?`,a:n+1};},
       'tk-operasi':()=>{const a=Math.floor(Math.random()*5)+1,b=Math.floor(Math.random()*5)+1;return{q:`${a}+${b}=?`,a:a+b};},
-      'tk-banding':()=>{const a=Math.floor(Math.random()*10)+1,b=Math.floor(Math.random()*10)+1;return{q:`Mana yang lebih besar: ${a} atau ${b}?`,a:a>b?a:b};},
-      'tk-bentuk':()=>{const bentuk=['lingkaran','segitiga','persegi'];return{q:`Bentuk apa yang tidak memiliki sudut?`,a:'lingkaran'};},
+      'tk-banding':()=>{const a=Math.floor(Math.random()*10)+1,b=Math.floor(Math.random()*10)+1;return{q:`Mana lebih besar: ${a} atau ${b}?`,a:a>b?a:b};},
+      'tk-bentuk':()=>{return{q:'Bentuk tanpa sudut?',a:'lingkaran'};},
       'tk-urut':()=>{const a=Math.floor(Math.random()*5)+1;return{q:`Angka setelah ${a}?`,a:a+1};},
-      'sd-bilangan':()=>{const a=Math.floor(Math.random()*20)+10,b=Math.floor(Math.random()*20)+10;return{q:`FPB dari ${a} & ${b}?`,a:(()=>{let x=a,y=b;while(y){[x,y]=[y,x%y];}return x;})()};},
+      'sd-bilangan':()=>{const a=Math.floor(Math.random()*20)+10,b=Math.floor(Math.random()*20)+10;return{q:`FPB ${a} & ${b}?`,a:(()=>{let x=a,y=b;while(y){[x,y]=[y,x%y];}return x;})()};},
       'sd-operasi':()=>{const a=Math.floor(Math.random()*50)+10,b=Math.floor(Math.random()*50)+10;return{q:`${a}+${b}=?`,a:a+b};},
       'sd-geometri':()=>{const p=Math.floor(Math.random()*10)+5,l=Math.floor(Math.random()*10)+5;return{q:`Luas persegi panjang ${p}×${l}?`,a:p*l};},
-      'sd-statistika':()=>{const data=[Math.floor(Math.random()*10)+5,Math.floor(Math.random()*10)+5,Math.floor(Math.random()*10)+5];const mean=Math.round(data.reduce((a,b)=>a+b,0)/data.length);return{q:`Mean dari ${data.join(',')}?`,a:mean};},
-      'sd-aljabar':()=>{const a=Math.floor(Math.random()*10)+1,b=Math.floor(Math.random()*20);return{q:`Selesaikan: x + ${a} = ${b}`,a:b-a};},
+      'sd-statistika':()=>{const d=[Math.floor(Math.random()*10)+5,Math.floor(Math.random()*10)+5,Math.floor(Math.random()*10)+5];return{q:`Mean ${d.join(',')}?`,a:Math.round(d.reduce((a,b)=>a+b,0)/d.length)};},
+      'sd-aljabar':()=>{const a=Math.floor(Math.random()*10)+1,b=Math.floor(Math.random()*20);return{q:`x+${a}=${b}, x=?`,a:b-a};},
       'smp-bilangan':()=>{const a=Math.floor(Math.random()*50)+10,b=Math.floor(Math.random()*50)+10;return{q:`${a}% dari ${b}?`,a:(a/100*b).toFixed(0)};},
-      'smp-aljabar':()=>{const a=Math.floor(Math.random()*10)+1,b=Math.floor(Math.random()*20)-10;return{q:`Selesaikan: ${a}x+${b}=0`,a:(-b/a).toFixed(1)};},
-      'smp-geometri':()=>{const a=Math.floor(Math.random()*10)+3,b=Math.floor(Math.random()*10)+3;return{q:`Sisi ${a} & ${b}, sisi miring?`,a:Math.sqrt(a*a+b*b).toFixed(1)};},
-      'smp-statistika':()=>{return{q:`Nilai tengah dari data disebut?`,a:'Median'};},
-      'sma-aljabar':()=>{const a=Math.floor(Math.random()*5)+2,b=Math.floor(Math.random()*5)+2;return{q:`${a}^${b} = ?`,a:Math.pow(a,b)};},
-      'sma-geometri':()=>{return{q:`Persamaan lingkaran dengan pusat (0,0) dan jari-jari r?`,a:'x²+y²=r²'};},
-      'sma-trigonometri':()=>{return{q:'sin²θ+cos²θ = ?',a:'1'};},
-      'sma-kalkulus':()=>{const n=Math.floor(Math.random()*5)+2,c=Math.floor(Math.random()*5)+1;return{q:`∫ ${c}x^${n} dx = ?`,a:`(${c}/${n+1})x^${n+1}+C`};},
-      'sma-statistika':()=>{return{q:`Peluang muncul angka pada koin?`,a:'1/2'};},
-      'sma-logika':()=>{return{q:'Negasi dari "semua" adalah?',a:'Ada/tidak semua'};},
-      's1-aljabar':()=>{return{q:'Sebutkan 4 aksioma grup!',a:'Tertutup, asosiatif, identitas, invers'};},
-      's1-analisis':()=>{return{q:'Apa definisi formal limit?',a:'∀ε>0 ∃δ>0 ∋ |x-a|<δ⇒|f(x)-L|<ε'};},
+      'smp-aljabar':()=>{const a=Math.floor(Math.random()*10)+1,b=Math.floor(Math.random()*20)-10;return{q:`${a}x+${b}=0, x=?`,a:(-b/a).toFixed(1)};},
+      'smp-geometri':()=>{const a=Math.floor(Math.random()*10)+3,b=Math.floor(Math.random()*10)+3;return{q:`Sisi ${a}&${b}, miring?`,a:Math.sqrt(a*a+b*b).toFixed(1)};},
+      'smp-statistika':()=>{return{q:'Nilai tengah data?',a:'Median'};},
+      'sma-aljabar':()=>{const a=Math.floor(Math.random()*5)+2,b=Math.floor(Math.random()*5)+2;return{q:`${a}^${b}=?`,a:Math.pow(a,b)};},
+      'sma-geometri':()=>{return{q:'Persamaan lingkaran pusat (0,0)?',a:'x²+y²=r²'};},
+      'sma-trigonometri':()=>{return{q:'sin²θ+cos²θ=?',a:'1'};},
+      'sma-kalkulus':()=>{const n=Math.floor(Math.random()*5)+2,c=Math.floor(Math.random()*5)+1;return{q:`∫ ${c}x^${n} dx=?`,a:`(${c}/${n+1})x^${n+1}+C`};},
+      'sma-statistika':()=>{return{q:'Peluang angka pada koin?',a:'1/2'};},
+      'sma-logika':()=>{return{q:'Negasi "semua"?',a:'Ada/tidak semua'};},
+      's1-aljabar':()=>{return{q:'4 aksioma grup?',a:'Tertutup, asosiatif, identitas, invers'};},
+      's1-analisis':()=>{return{q:'Definisi formal limit?',a:'∀ε>0 ∃δ>0 ∋ |x-a|<δ⇒|f(x)-L|<ε'};},
       's1-topologi':()=>{return{q:'Apa itu homeomorfisme?',a:'Fungsi bijektif kontinu dengan invers kontinu'};},
       's1-teori-bilangan':()=>{return{q:'Apa itu bilangan prima?',a:'Hanya bisa dibagi 1 dan dirinya sendiri'};},
-      's1-numerik':()=>{return{q:'Metode Newton-Raphson untuk mencari?',a:'Akar persamaan'};},
-      's1-diferensial':()=>{return{q:'Apa kepanjangan ODE?',a:'Ordinary Differential Equation'};},
-      's1-probabilitas':()=>{return{q:'Distribusi normal disebut juga?',a:'Distribusi Gauss'};},
-      's1-diskrit':()=>{return{q:'Apa itu graf?',a:'Himpunan simpul dan sisi'};},
-      's1-kripto':()=>{return{q:'Kepanjangan RSA?',a:'Rivest-Shamir-Adleman'};},
-      's2-analisis-fungsional':()=>{return{q:'Apa itu ruang Hilbert?',a:'Ruang vektor lengkap dengan inner product'};},
-      's2-ukuran':()=>{return{q:'Siapa penemu integral Lebesgue?',a:'Henri Lebesgue'};},
-      's2-geometri-diferensial':()=>{return{q:'Apa itu manifold?',a:'Ruang yang lokal mirip ℝⁿ'};},
-      's2-topologi-aljabar':()=>{return{q:'Apa itu grup fundamental?',a:'Grup yang mengukur lubang dalam ruang'};},
-      's2-kategori':()=>{return{q:'Apa itu funktor?',a:'Peta antar kategori'};},
-      's2-geometri-aljabar':()=>{return{q:'Siapa penemu Skema?',a:'Alexander Grothendieck'};},
-      's2-representasi':()=>{return{q:'Apa itu representasi trivial?',a:'Setiap elemen grup dipetakan ke matriks [1]'};},
-      's2-stokastik':()=>{return{q:'Apa itu rantai Markov?',a:'Proses tanpa memori'};},
-      's2-ml':()=>{return{q:'Apa itu overfitting?',a:'Model terlalu cocok dengan data latih'};},
-      's2-kripto-lanjut':()=>{return{q:'Apa itu ZKP?',a:'Zero-Knowledge Proof'};},
-      's3-riset':()=>{return{q:'Apa itu disertasi S3?',a:'Kontribusi orisinal pada matematika'};},
-      's3-singularitas':()=>{return{q:'Apa itu titik singular?',a:'Titik di mana kurva tidak mulus'};},
-      's3-nonkomutatif':()=>{return{q:'Apa itu geometri nonkomutatif?',a:'Geometri di mana koordinat tidak komutatif'};},
-      's3-harmonik':()=>{return{q:'Apa itu wavelet?',a:'Fungsi untuk analisis frekuensi-waktu'};},
-      's3-chaos':()=>{return{q:'Apa itu efek kupu-kupu?',a:'Perubahan kecil bisa menyebabkan perbedaan besar'};},
-      's3-kuantum':()=>{return{q:'Apa itu qubit?',a:'Bit kuantum, bisa 0 dan 1 sekaligus'};},
-      's3-string':()=>{return{q:'Berapa dimensi dalam teori string?',a:'10 atau 11 dimensi'};},
-      's3-topos':()=>{return{q:'Apa itu topos?',a:'Generalisasi topologi dengan logika internal'};}
-    };
-    const gen = gens[id];
-    if (gen) {
-      const s = gen();
-      container.innerHTML = `<p><strong>${s.q}</strong></p><button class="btn" onclick="this.nextElementSibling.style.display='block'">Lihat Jawaban</button><p class="jawaban">${s.a}</p>`;
-    }
-  }
-
-  function checkSecret() {
-    const input = document.getElementById('secretInput').value.trim();
-    document.querySelectorAll('.secretPanel').forEach(el => el.style.display = 'none');
-    if (input === '76112') document.getElementById('panel76112').style.display = 'block';
-    else alert('Kode salah.');
-  }
-
-  function sendChat() {
-    const input = document.getElementById('chatInput');
-    const msg = input.value.trim().toLowerCase();
-    if (!msg) return;
-    const chat = document.getElementById('chatMessages');
-    chat.innerHTML += '<p><strong>Kamu:</strong> ' + msg + '</p>';
-    let reply = '';
-    if (msg.includes('integral')) reply = '∫xⁿ dx = xⁿ⁺¹/(n+1) + C.';
-    else if (msg.includes('rsa')) reply = 'RSA = Rivest-Shamir-Adleman.';
-    else if (msg.includes('riemann')) reply = 'Garis kritis Re(s)=1/2. Hadiah $1M.';
-    else if (msg.includes('galois')) reply = 'S₅ tidak solvable → derajat ≥5 tak ada rumus.';
-    else if (msg.includes('hello')||msg.includes('halo')) reply = 'Halo. Aku L.';
-    else if (msg === 'l') reply = 'L. Aku di sini.';
-    else reply = 'Tanyakan lebih spesifik.';
-    chat.innerHTML += '<p><strong>L:</strong> ' + reply + '</p>';
-    input.value = '';
-    chat.scrollTop = chat.scrollHeight;
-  }
-
-  // SURVIVAL MODE
-  let survivalScore = 0, survivalLives = 3, survivalTimer = 10, survivalInterval = null, survivalAnswer = null, survivalDifficulty = 1;
-  const survivalBank = [
-    { q: "7 + 8 = ?", a: "15", diff: 1 }, { q: "12 - 5 = ?", a: "7", diff: 1 }, { q: "3 × 4 = ?", a: "12", diff: 1 },
-    { q: "20 ÷ 4 = ?", a: "5", diff: 1 }, { q: "√64 = ?", a: "8", diff: 1 }, { q: "5² = ?", a: "25", diff: 1 },
-    { q: "10 + 15 = ?", a: "25", diff: 1 }, { q: "100 - 37 = ?", a: "63", diff: 1 }, { q: "6 × 7 = ?", a: "42", diff: 1 },
-    { q: "81 ÷ 9 = ?", a: "9", diff: 1 }, { q: "√144 = ?", a: "12", diff: 1 }, { q: "2⁴ = ?", a: "16", diff: 1 },
-    { q: "FPB 12 dan 18?", a: "6", diff: 2 }, { q: "KPK 4 dan 6?", a: "12", diff: 2 },
-    { q: "sin 30° = ?", a: "0.5", diff: 2 }, { q: "cos 60° = ?", a: "0.5", diff: 2 },
-    { q: "2³ × 2² = ?", a: "32", diff: 2 }, { q: "∫ 2x dx = ?", a: "x² + C", diff: 2 },
-    { q: "15% dari 200 = ?", a: "30", diff: 2 }, { q: "Luas segitiga alas 10 tinggi 5?", a: "25", diff: 2 },
-    { q: "Pythagoras: 6, 8, ?", a: "10", diff: 2 }, { q: "log₁₀ 1000 = ?", a: "3", diff: 2 },
-    { q: "Turunan x³ = ?", a: "3x²", diff: 3 }, { q: "∫ x² dx 0→2 = ?", a: "8/3", diff: 3 },
-    { q: "RSA kepanjangan?", a: "Rivest-Shamir-Adleman", diff: 3 }, { q: "Apa itu ZKP?", a: "Zero-Knowledge Proof", diff: 3 },
-    { q: "lim x→2 (x²-4)/(x-2) = ?", a: "4", diff: 3 }, { q: "sin²θ + cos²θ = ?", a: "1", diff: 3 },
-    { q: "Determinan [[1,2],[3,4]]?", a: "-2", diff: 3 }, { q: "∫ 3x² dx = ?", a: "x³ + C", diff: 3 },
-    { q: "Pengaju Riemann?", a: "Bernhard Riemann", diff: 4 }, { q: "Grup simetri derajat 5?", a: "S5", diff: 4 },
-    { q: "Re(s) kritis ζ(s)?", a: "1/2", diff: 4 }, { q: "Pembukti Fermat?", a: "Andrew Wiles", diff: 4 },
-    { q: "Apa itu ECDLP?", a: "Elliptic Curve Discrete Logarithm Problem", diff: 4 },
-    { q: "Apa itu skema?", a: "Generalisasi varietas aljabar", diff: 4 },
-    { q: "Pencipta Teori Kategori?", a: "Eilenberg dan Mac Lane", diff: 4 },
-    { q: "Hipotesis Kontinuum?", a: "Tidak ada himpunan antara ℵ₀ dan 2^ℵ₀", diff: 5 },
-    { q: "Siapa penemu Skema?", a: "Alexander Grothendieck", diff: 5 },
-    { q: "Teorema Gödel?", a: "Sistem formal tidak bisa membuktikan konsistensinya sendiri", diff: 5 },
-    { q: "Apa itu P vs NP?", a: "Apakah P = NP?", diff: 5 },
-    { q: "Penemu Mesin Turing?", a: "Alan Turing", diff: 5 },
-    { q: "Konstanta Kaprekar?", a: "6174", diff: 5 }
-  ];
-
-  function startSurvival() {
-    survivalScore = 0; survivalLives = 3; survivalDifficulty = 1;
-    document.getElementById('score').textContent = '0'; document.getElementById('lives').textContent = '3';
-    document.getElementById('gamePanel').style.display = 'block'; document.getElementById('gameFeedback').textContent = '';
-    nextSurvival();
-  }
-
-  function nextSurvival() {
-    clearInterval(survivalInterval);
-    const available = survivalBank.filter(q => q.diff <= survivalDifficulty);
-    const q = available[Math.floor(Math.random() * available.length)];
-    document.getElementById('gameQuestion').textContent = q.q;
-    survivalAnswer = q.a.toString().trim().toLowerCase();
-    document.getElementById('gameAnswer').value = '';
-    survivalTimer = Math.max(5, 12 - survivalDifficulty);
-    document.getElementById('timer').textContent = survivalTimer;
-    survivalInterval = setInterval(() => {
-      survivalTimer--;
-      document.getElementById('timer').textContent = survivalTimer;
-      if (survivalTimer <= 0) {
-        survivalLives--;
-        document.getElementById('lives').textContent = survivalLives;
-        if (survivalLives <= 0) {
-          clearInterval(survivalInterval);
-          document.getElementById('gameFeedback').textContent = '💀 Game Over! Skor akhir: ' + survivalScore;
-          document.getElementById('gamePanel').style.display = 'none';
-        } else { nextSurvival(); }
-      }
-    }, 1000);
-  }
-
-  function submitSurvival() {
-    const userAnswer = document.getElementById('gameAnswer').value.trim().toLowerCase();
-    if (userAnswer === survivalAnswer) {
-      survivalScore += survivalDifficulty * 10;
-      document.getElementById('score').textContent = survivalScore;
-      if (survivalScore % 50 === 0 && survivalDifficulty < 5) { survivalDifficulty++; }
-      nextSurvival();
-    } else {
-      survivalLives--;
-      document.getElementById('lives').textContent = survivalLives;
-      if (survivalLives <= 0) {
-        clearInterval(survivalInterval);
-        document.getElementById('gameFeedback').textContent = '💀 Game Over! Skor akhir: ' + survivalScore;
-        document.getElementById('gamePanel').style.display = 'none';
-      } else { nextSurvival(); }
-    }
-  }
-</script>
-</body>
-</html>
+      's1-numerik':()=>{return{q:'Metode Newton-Raphson untuk?',a:'Menc
