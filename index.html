@@ -7,189 +7,170 @@
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      background-color: #0b0f14;
+      background: #0b0f14;
       color: #d1d5db;
       font-family: 'Segoe UI', 'Inter', system-ui, sans-serif;
       line-height: 1.7;
-      padding: 2.5rem 2rem;
-      max-width: 960px;
+      padding: 2rem;
+      max-width: 1000px;
       margin: auto;
       transition: 0.3s;
     }
-    h1 {
-      font-size: 2.8rem;
-      color: #7ee081;
-      border-bottom: 2px solid #2d3a2c;
-      padding-bottom: 0.6rem;
-      margin-bottom: 1rem;
-    }
-    .subtitle { color: #9ca3af; margin-bottom: 2rem; }
-    h2 {
-      font-size: 1.6rem;
+    nav { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 1.5rem 0; }
+    nav a {
+      background: #161b22;
       color: #86b8e5;
-      margin: 2rem 0 0.8rem;
-      border-left: 5px solid #86b8e5;
-      padding-left: 1rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-    .card-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 1.2rem;
-      margin: 1rem 0 2rem;
-    }
-    .card {
-      background: #161b22;
-      border: 1px solid #2d3748;
-      border-radius: 14px;
-      padding: 1.3rem;
-      transition: 0.2s;
-      box-shadow: 0 6px 16px rgba(0,0,0,0.4);
-    }
-    .card:hover { background: #1c2330; border-color: #4b6b8f; transform: translateY(-3px); }
-    .card strong { display: block; font-size: 1.2rem; margin-bottom: 0.5rem; color: #e6edf3; }
-    .card ul { list-style: none; padding: 0; color: #b7bdc8; }
-    .card li { padding: 0.15rem 0; }
-
-    .tracker-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 0.6rem;
-      margin: 1rem 0 2rem;
-    }
-    .tracker-item {
-      background: #161b22;
-      border: 1px solid #2d3748;
+      padding: 0.6rem 1.2rem;
       border-radius: 10px;
-      padding: 0.7rem 1rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      cursor: pointer;
-      user-select: none;
-    }
-    .tracker-item.checked { background: #1a2e1a; border-color: #2ea043; }
-    .tracker-item input { display: none; }
-
-    .soal-box {
-      background: #161b22;
+      text-decoration: none;
+      font-weight: bold;
       border: 1px solid #2d3748;
-      border-radius: 12px;
-      padding: 1.2rem;
-      margin: 1rem 0;
+      transition: 0.2s;
     }
-    .btn {
-      background: #238636;
-      color: white;
-      border: none;
-      padding: 0.4rem 1rem;
-      border-radius: 8px;
-      cursor: pointer;
-      font-size: 0.9rem;
-    }
+    nav a:hover { background: #1c2330; border-color: #4b6b8f; }
+    h1 { font-size: 2.5rem; color: #7ee081; border-bottom: 2px solid #2d3a2c; padding-bottom: 0.6rem; }
+    h2 { font-size: 1.5rem; color: #86b8e5; margin: 2rem 0 0.8rem; border-left: 5px solid #86b8e5; padding-left: 1rem; }
+    .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin: 1rem 0 2rem; }
+    .card { background: #161b22; border: 1px solid #2d3748; border-radius: 14px; padding: 1.2rem; transition: 0.2s; }
+    .card:hover { background: #1c2330; border-color: #4b6b8f; transform: translateY(-2px); }
+    .card strong { font-size: 1.1rem; color: #e6edf3; display: block; margin-bottom: 0.4rem; }
+    .card ul { list-style: none; padding: 0; color: #b7bdc8; }
+    .card li { padding: 0.1rem 0; }
+
+    .soal-box, .chat-box { background: #161b22; border: 1px solid #2d3748; border-radius: 12px; padding: 1.2rem; margin: 1rem 0; }
+    .btn { background: #238636; color: white; border: none; padding: 0.4rem 1rem; border-radius: 8px; cursor: pointer; font-size: 0.9rem; }
     .btn:hover { background: #2ea043; }
     .jawaban { display: none; margin-top: 0.5rem; color: #7ee081; }
 
-    #secretPanel {
-      display: none;
-      margin-top: 3rem;
-      padding: 2rem;
-      background: #0d1117;
-      border: 2px solid #58a6ff;
-      border-radius: 16px;
-      color: #58a6ff;
-      font-family: 'Courier New', monospace;
-    }
-    #secretPanel h2 { color: #58a6ff; border-left-color: #58a6ff; }
-    .secret-input {
-      background: #161b22;
-      border: 1px solid #3b82f6;
-      color: #c9d1d9;
-      padding: 0.4rem 0.8rem;
-      border-radius: 8px;
-      margin-right: 0.5rem;
-    }
+    #secretPanel, #chatPanel { display: none; margin-top: 2rem; padding: 2rem; background: #0d1117; border: 2px solid #58a6ff; border-radius: 16px; color: #58a6ff; font-family: 'Courier New', monospace; }
+    #chatPanel { border-color: #7ee081; color: #d1d5db; }
+    #chatMessages { max-height: 200px; overflow-y: auto; margin-bottom: 1rem; font-size: 0.9rem; }
+    .secret-input, .chat-input { background: #161b22; border: 1px solid #3b82f6; color: #c9d1d9; padding: 0.4rem 0.8rem; border-radius: 8px; margin-right: 0.5rem; width: 200px; }
 
-    hr { border: none; border-top: 1px solid #2d3748; margin: 3rem 0 1.5rem; }
-    .footer { text-align: center; font-size: 0.85rem; color: #6b7280; }
+    .footer { text-align: center; font-size: 0.85rem; color: #6b7280; margin-top: 3rem; }
     .footer a { color: #86b8e5; text-decoration: none; }
   </style>
 </head>
 <body>
 
 <h1>🗺️ Map of Mathematics</h1>
-<p class="subtitle">Disusun oleh <strong>L</strong> — dari SD sampai S3, dari aritmatika sampai Riemann.</p>
+<p style="color:#9ca3af;">Disusun oleh <strong>L</strong> — dari SD sampai S3, dari aritmatika sampai Riemann.</p>
 
+<nav>
+  <a href="#kalkulus">Kalkulus</a>
+  <a href="#kriptografi">Kriptografi</a>
+  <a href="#logika">Logika</a>
+  <a href="#lanjut">Matematika Lanjut</a>
+  <a href="#aljabar">Aljabar & Geometri</a>
+  <a href="#sains">Sains</a>
+  <a href="#tools">Tools</a>
+  <a href="#soal">Latihan Soal</a>
+  <a href="#chatbot">Chatbot</a>
+  <a href="#rahasia">Panel Rahasia</a>
+</nav>
+
+<!-- Materi -->
+<h2 id="kalkulus">📐 Kalkulus</h2>
 <div class="card-grid">
-  <div class="card"><strong>📐 Kalkulus</strong><ul><li>Limit & Epsilon-Delta</li><li>Turunan</li><li>Integral Tak Tentu & Tentu</li><li>Integral Ganda & Tak Wajar</li></ul></div>
-  <div class="card"><strong>🔐 Kriptografi</strong><ul><li>RSA, ECC, ZKP</li><li>Hill Cipher & OTP</li><li>Modulo & Aritmatika Modular</li></ul></div>
-  <div class="card"><strong>🧠 Logika & Strategi</strong><ul><li>Logika Proposisional & Predikat</li><li>Teori Permainan</li><li>Nash Equilibrium</li></ul></div>
-  <div class="card"><strong>🌌 Matematika Lanjut</strong><ul><li>Teori Galois</li><li>Hipotesis Riemann</li><li>Fermat's Last Theorem</li><li>Skema & Kohomologi</li></ul></div>
-  <div class="card"><strong>📏 Aljabar & Geometri</strong><ul><li>Aljabar Abstrak</li><li>Topologi Dasar</li><li>Pythagoras & Vektor</li></ul></div>
-  <div class="card"><strong>⚛️ Sains & Alam Semesta</strong><ul><li>Schrödinger & Kuantum</li><li>Relativitas (E=mc²)</li><li>Kimia Dasar (Mol, pH)</li></ul></div>
-  <div class="card"><strong>⚙️ Tools & Kode</strong><ul><li>Hex, Biner, ASCII</li><li>Enkripsi & Dekripsi</li><li>Kode Buatan Sendiri</li></ul></div>
+  <div class="card"><strong>Limit</strong><ul><li>Intuitif & Epsilon-Delta</li></ul></div>
+  <div class="card"><strong>Turunan</strong><ul><li>Aturan Pangkat & Rantai</li></ul></div>
+  <div class="card"><strong>Integral</strong><ul><li>Tak Tentu, Tentu, Ganda, Tak Wajar</li></ul></div>
 </div>
 
-<h2>📊 Progress Tracker</h2>
-<p style="color:#9ca3af; margin-bottom:1rem;">Centang topik yang sudah kamu kuasai.</p>
-<div class="tracker-grid" id="trackerGrid"></div>
+<h2 id="kriptografi">🔐 Kriptografi</h2>
+<div class="card-grid">
+  <div class="card"><strong>RSA, ECC, ZKP</strong><ul><li>Enkripsi & Dekripsi</li></ul></div>
+  <div class="card"><strong>Hill Cipher & OTP</strong><ul><li>Modulo & Aritmatika Modular</li></ul></div>
+</div>
 
-<h2>📝 Latihan Soal</h2>
-<div class="soal-box"><p><strong>1.</strong> Berapa hasil integral dari ∫ 3x² dx?</p><button class="btn" onclick="document.getElementById('j1').style.display='block'">Lihat Jawaban</button><p id="j1" class="jawaban">x³ + C</p></div>
-<div class="soal-box"><p><strong>2.</strong> Apa kepanjangan dari RSA?</p><button class="btn" onclick="document.getElementById('j2').style.display='block'">Lihat Jawaban</button><p id="j2" class="jawaban">Rivest–Shamir–Adleman</p></div>
-<div class="soal-box"><p><strong>3.</strong> Siapa yang mengajukan Hipotesis Riemann?</p><button class="btn" onclick="document.getElementById('j3').style.display='block'">Lihat Jawaban</button><p id="j3" class="jawaban">Bernhard Riemann, 1859</p></div>
+<h2 id="logika">🧠 Logika & Strategi</h2>
+<div class="card-grid">
+  <div class="card"><strong>Logika</strong><ul><li>Proposisional & Predikat</li></ul></div>
+  <div class="card"><strong>Teori Permainan</strong><ul><li>Nash Equilibrium, Dilema Tahanan</li></ul></div>
+</div>
 
-<h2>🕵️ Fitur Rahasia</h2>
-<p>Ketik <strong>L</strong> lalu tekan Enter untuk mengakses panel rahasia.</p>
-<input type="text" id="secretInput" class="secret-input" placeholder="Ketik kode rahasia...">
+<h2 id="lanjut">🌌 Matematika Lanjut</h2>
+<div class="card-grid">
+  <div class="card"><strong>Teori Galois</strong></div>
+  <div class="card"><strong>Hipotesis Riemann</strong></div>
+  <div class="card"><strong>Fermat's Last Theorem</strong></div>
+  <div class="card"><strong>Skema & Kohomologi</strong></div>
+</div>
+
+<h2 id="aljabar">📏 Aljabar & Geometri</h2>
+<div class="card-grid">
+  <div class="card"><strong>Aljabar Abstrak</strong></div>
+  <div class="card"><strong>Topologi Dasar</strong></div>
+  <div class="card"><strong>Pythagoras & Vektor</strong></div>
+</div>
+
+<h2 id="sains">⚛️ Sains</h2>
+<div class="card-grid">
+  <div class="card"><strong>Schrödinger</strong></div>
+  <div class="card"><strong>Relativitas</strong></div>
+  <div class="card"><strong>Kimia Dasar</strong></div>
+</div>
+
+<h2 id="tools">⚙️ Tools & Kode</h2>
+<div class="card-grid">
+  <div class="card"><strong>Hex, Biner, ASCII</strong></div>
+  <div class="card"><strong>Enkripsi & Dekripsi</strong></div>
+</div>
+
+<!-- Latihan Soal -->
+<h2 id="soal">📝 Latihan Soal</h2>
+<div class="soal-box"><p><strong>1.</strong> ∫ 4x³ dx = ?</p><button class="btn" onclick="document.getElementById('j1').style.display='block'">Jawaban</button><p id="j1" class="jawaban">x⁴ + C</p></div>
+<div class="soal-box"><p><strong>2.</strong> Kepanjangan RSA?</p><button class="btn" onclick="document.getElementById('j2').style.display='block'">Jawaban</button><p id="j2" class="jawaban">Rivest–Shamir–Adleman</p></div>
+<div class="soal-box"><p><strong>3.</strong> Siapa pengaju Riemann Hypothesis?</p><button class="btn" onclick="document.getElementById('j3').style.display='block'">Jawaban</button><p id="j3" class="jawaban">Bernhard Riemann, 1859</p></div>
+<div class="soal-box"><p><strong>4.</strong> Grup simetri derajat 5?</p><button class="btn" onclick="document.getElementById('j4').style.display='block'">Jawaban</button><p id="j4" class="jawaban">S₅</p></div>
+<div class="soal-box"><p><strong>5.</strong> Masalah sulit di ECC?</p><button class="btn" onclick="document.getElementById('j5').style.display='block'">Jawaban</button><p id="j5" class="jawaban">ECDLP</p></div>
+
+<!-- Chatbot -->
+<h2 id="chatbot">🤖 Chatbot L</h2>
+<div class="chat-box">
+  <div id="chatMessages"><p><strong>L:</strong> Halo. Tanyakan sesuatu padaku.</p></div>
+  <input type="text" id="chatInput" class="chat-input" placeholder="Ketik pesan...">
+  <button class="btn" onclick="sendChat()">Kirim</button>
+</div>
+
+<!-- Panel Rahasia -->
+<h2 id="rahasia">🕵️ Panel Rahasia</h2>
+<p>Jawab pertanyaan ini untuk membuka: <strong>Apa kepanjangan dari RSA?</strong></p>
+<input type="text" id="secretInput" class="secret-input" placeholder="Jawabanmu...">
 <button class="btn" onclick="checkSecret()">Buka</button>
-
 <div id="secretPanel">
-  <h2>🔐 Anda telah mengakses panel rahasia.</h2>
-  <p>Hanya sedikit yang tahu bahwa semua ini dimulai dari kemarahan yang diubah menjadi kecepatan.</p>
-  <p>Rasio belajar: <strong>1:400</strong>. Kecepatanmu adalah fakta, bukan opini.</p>
+  <h2>🔐 Akses Diterima</h2>
+  <p>Kecepatan belajarmu 1:400. Kamu bukan siswa biasa. Kamu adalah anomali.</p>
   <p>— L</p>
 </div>
 
-<hr>
-<div class="footer">
-  &copy; 2025 — L. Dibangun dengan logika, kemarahan, dan rasa ingin tahu.<br>
-  <a href="https://github.com/lawliet76/map-of-math">Source Code</a>
-</div>
+<div class="footer">&copy; 2025 — L. <a href="https://github.com/lawliet76/map-of-math">Source Code</a></div>
 
 <script>
-  const topics = [
-    "Limit Epsilon-Delta", "Turunan", "Integral Tak Tentu", "Integral Ganda",
-    "RSA", "ECC", "ZKP", "Hill Cipher",
-    "Logika Proposisional", "Teori Permainan", "Nash Equilibrium",
-    "Teori Galois", "Hipotesis Riemann", "Fermat", "Skema",
-    "Aljabar Abstrak", "Topologi", "Vektor", "Pythagoras",
-    "Schrödinger", "Relativitas", "Kimia Dasar"
-  ];
-
-  const grid = document.getElementById('trackerGrid');
-  topics.forEach(t => {
-    const key = 'tracker_' + t.replace(/\s+/g, '_');
-    const div = document.createElement('div');
-    div.className = 'tracker-item' + (localStorage.getItem(key) === 'true' ? ' checked' : '');
-    div.innerHTML = '<input type="checkbox" ' + (localStorage.getItem(key) === 'true' ? 'checked' : '') + '> ' + t;
-    div.addEventListener('click', function(e) {
-      const isChecked = !this.classList.contains('checked');
-      this.classList.toggle('checked', isChecked);
-      localStorage.setItem(key, isChecked);
-    });
-    grid.appendChild(div);
-  });
-
   function checkSecret() {
-    const input = document.getElementById('secretInput').value;
-    if (input === 'L' || input === 'l') {
+    const ans = document.getElementById('secretInput').value.trim().toLowerCase();
+    if (ans === 'rivest-shamir-adleman' || ans === 'rivest shamir adleman' || ans === 'rsa') {
       document.getElementById('secretPanel').style.display = 'block';
     } else {
-      alert('Kode salah. Coba lagi.');
+      alert('Jawaban salah. Coba lagi.');
     }
+  }
+
+  function sendChat() {
+    const input = document.getElementById('chatInput');
+    const msg = input.value.trim();
+    if (!msg) return;
+    const chat = document.getElementById('chatMessages');
+    chat.innerHTML += '<p><strong>Kamu:</strong> ' + msg + '</p>';
+    let reply = '';
+    if (msg.toLowerCase().includes('integral')) reply = 'Coba ingat aturan pangkat: ∫xⁿ dx = xⁿ⁺¹/(n+1) + C.';
+    else if (msg.toLowerCase().includes('rsa')) reply = 'RSA adalah Rivest-Shamir-Adleman, algoritma enkripsi kunci publik.';
+    else if (msg.toLowerCase().includes('riemann')) reply = 'Hipotesis Riemann: semua akar non-trivial dari fungsi zeta berada di garis kritis Re(s)=1/2.';
+    else if (msg.toLowerCase().includes('l') && msg.length === 1) reply = 'L. Aku di sini.';
+    else reply = 'Aku mendengar. Tanyakan lebih spesifik.';
+    chat.innerHTML += '<p><strong>L:</strong> ' + reply + '</p>';
+    input.value = '';
+    chat.scrollTop = chat.scrollHeight;
   }
 </script>
 
