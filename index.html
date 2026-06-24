@@ -205,4 +205,122 @@
       's1-analisis':()=>{return{q:'Definisi formal limit?',a:'∀ε>0 ∃δ>0 ∋ |x-a|<δ⇒|f(x)-L|<ε'};},
       's1-topologi':()=>{return{q:'Apa itu homeomorfisme?',a:'Fungsi bijektif kontinu dengan invers kontinu'};},
       's1-teori-bilangan':()=>{return{q:'Apa itu bilangan prima?',a:'Hanya bisa dibagi 1 dan dirinya sendiri'};},
-      's1-numerik':()=>{return{q:'Metode Newton-Raphson untuk?',a:'Menc
+      's1-numerik':()=>{return{q:'Metode Newton-Raphson untuk?',a:'Mencari akar persamaan'};},
+      's1-diferensial':()=>{return{q:'Kepanjangan ODE?',a:'Ordinary Differential Equation'};},
+      's1-probabilitas':()=>{return{q:'Distribusi normal disebut?',a:'Distribusi Gauss'};},
+      's1-diskrit':()=>{return{q:'Apa itu graf?',a:'Himpunan simpul dan sisi'};},
+      's1-kripto':()=>{return{q:'Kepanjangan RSA?',a:'Rivest-Shamir-Adleman'};},
+      's2-analisis-fungsional':()=>{return{q:'Apa itu ruang Hilbert?',a:'Ruang vektor lengkap dengan inner product'};},
+      's2-ukuran':()=>{return{q:'Siapa penemu integral Lebesgue?',a:'Henri Lebesgue'};},
+      's2-geometri-diferensial':()=>{return{q:'Apa itu manifold?',a:'Ruang yang lokal mirip ℝⁿ'};},
+      's2-topologi-aljabar':()=>{return{q:'Apa itu grup fundamental?',a:'Grup yang mengukur lubang dalam ruang'};},
+      's2-kategori':()=>{return{q:'Apa itu funktor?',a:'Peta antar kategori'};},
+      's2-geometri-aljabar':()=>{return{q:'Siapa penemu Skema?',a:'Alexander Grothendieck'};},
+      's2-representasi':()=>{return{q:'Apa itu representasi trivial?',a:'Setiap elemen grup dipetakan ke [1]'};},
+      's2-stokastik':()=>{return{q:'Apa itu rantai Markov?',a:'Proses tanpa memori'};},
+      's2-ml':()=>{return{q:'Apa itu overfitting?',a:'Model terlalu cocok dengan data latih'};},
+      's2-kripto-lanjut':()=>{return{q:'Apa itu ZKP?',a:'Zero-Knowledge Proof'};},
+      's3-riset':()=>{return{q:'Apa itu disertasi S3?',a:'Kontribusi orisinal pada matematika'};},
+      's3-singularitas':()=>{return{q:'Apa itu titik singular?',a:'Titik di mana kurva tidak mulus'};},
+      's3-nonkomutatif':()=>{return{q:'Apa itu geometri nonkomutatif?',a:'Geometri di mana koordinat tidak komutatif'};},
+      's3-harmonik':()=>{return{q:'Apa itu wavelet?',a:'Fungsi untuk analisis frekuensi-waktu'};},
+      's3-chaos':()=>{return{q:'Apa itu efek kupu-kupu?',a:'Perubahan kecil bisa menyebabkan perbedaan besar'};},
+      's3-kuantum':()=>{return{q:'Apa itu qubit?',a:'Bit kuantum, bisa 0 dan 1 sekaligus'};},
+      's3-string':()=>{return{q:'Berapa dimensi dalam teori string?',a:'10 atau 11'};},
+      's3-topos':()=>{return{q:'Apa itu topos?',a:'Generalisasi topologi dengan logika internal'};}
+    };
+    const gen = gens[id];
+    if (gen) {
+      const s = gen();
+      container.innerHTML = `<p><strong>${s.q}</strong></p><button class="btn" onclick="this.nextElementSibling.style.display='block'">Lihat Jawaban</button><p class="jawaban">${s.a}</p>`;
+    }
+  }
+
+  function sendChat() {
+    const input = document.getElementById('chatInput');
+    const msg = input.value.trim().toLowerCase();
+    if (!msg) return;
+    const chat = document.getElementById('chatMessages');
+    chat.innerHTML += '<p><strong>Kamu:</strong> ' + msg + '</p>';
+    let reply = '';
+    if (msg.includes('integral')) reply = '∫xⁿ dx = xⁿ⁺¹/(n+1) + C.';
+    else if (msg.includes('rsa')) reply = 'RSA = Rivest-Shamir-Adleman.';
+    else if (msg.includes('riemann')) reply = 'Garis kritis Re(s)=1/2.';
+    else if (msg.includes('galois')) reply = 'S₅ tidak solvable.';
+    else if (msg.includes('hello')||msg.includes('halo')) reply = 'Halo. Aku L.';
+    else reply = 'Tanyakan lebih spesifik.';
+    chat.innerHTML += '<p><strong>L:</strong> ' + reply + '</p>';
+    input.value = '';
+    chat.scrollTop = chat.scrollHeight;
+  }
+
+  // SURVIVAL
+  let survivalScore = 0, survivalLives = 3, survivalTimer = 10, survivalInterval = null, survivalAnswer = null, survivalDifficulty = 1;
+  const survivalBank = [
+    { q: "7+8=?", a: "15", diff: 1 }, { q: "12-5=?", a: "7", diff: 1 }, { q: "3×4=?", a: "12", diff: 1 }, { q: "20÷4=?", a: "5", diff: 1 },
+    { q: "√64=?", a: "8", diff: 1 }, { q: "5²=?", a: "25", diff: 1 }, { q: "10+15=?", a: "25", diff: 1 }, { q: "100-37=?", a: "63", diff: 1 },
+    { q: "6×7=?", a: "42", diff: 1 }, { q: "81÷9=?", a: "9", diff: 1 }, { q: "√144=?", a: "12", diff: 1 }, { q: "2⁴=?", a: "16", diff: 1 },
+    { q: "FPB 12&18?", a: "6", diff: 2 }, { q: "KPK 4&6?", a: "12", diff: 2 }, { q: "sin30°=?", a: "0.5", diff: 2 }, { q: "cos60°=?", a: "0.5", diff: 2 },
+    { q: "2³×2²=?", a: "32", diff: 2 }, { q: "∫2x dx=?", a: "x²+C", diff: 2 }, { q: "15% dari 200?", a: "30", diff: 2 },
+    { q: "Luas segitiga alas10 tinggi5?", a: "25", diff: 2 }, { q: "Pythagoras 6,8?", a: "10", diff: 2 }, { q: "log₁₀1000=?", a: "3", diff: 2 },
+    { q: "Turunan x³?", a: "3x²", diff: 3 }, { q: "∫x² dx 0→2?", a: "8/3", diff: 3 }, { q: "Kepanjangan RSA?", a: "Rivest-Shamir-Adleman", diff: 3 },
+    { q: "Apa itu ZKP?", a: "Zero-Knowledge Proof", diff: 3 }, { q: "lim x→2 (x²-4)/(x-2)=?", a: "4", diff: 3 },
+    { q: "sin²+cos²=?", a: "1", diff: 3 }, { q: "Determinan [[1,2],[3,4]]?", a: "-2", diff: 3 }, { q: "∫3x² dx=?", a: "x³+C", diff: 3 },
+    { q: "Pengaju Riemann?", a: "Bernhard Riemann", diff: 4 }, { q: "Grup simetri derajat5?", a: "S5", diff: 4 },
+    { q: "Re(s) kritis ζ(s)?", a: "1/2", diff: 4 }, { q: "Pembukti Fermat?", a: "Andrew Wiles", diff: 4 },
+    { q: "Apa itu ECDLP?", a: "Elliptic Curve Discrete Logarithm Problem", diff: 4 }, { q: "Apa itu skema?", a: "Generalisasi varietas aljabar", diff: 4 },
+    { q: "Pencipta Teori Kategori?", a: "Eilenberg dan Mac Lane", diff: 4 }, { q: "Hipotesis Kontinuum?", a: "Tidak ada himpunan antara ℵ₀ dan 2^ℵ₀", diff: 5 },
+    { q: "Penemu Skema?", a: "Alexander Grothendieck", diff: 5 }, { q: "Teorema Gödel?", a: "Sistem formal tidak bisa membuktikan konsistensinya sendiri", diff: 5 },
+    { q: "P vs NP?", a: "Apakah P = NP?", diff: 5 }, { q: "Penemu Mesin Turing?", a: "Alan Turing", diff: 5 }, { q: "Konstanta Kaprekar?", a: "6174", diff: 5 }
+  ];
+  function startSurvival() {
+    survivalScore = 0; survivalLives = 3; survivalDifficulty = 1;
+    document.getElementById('score').textContent = '0'; document.getElementById('lives').textContent = '3';
+    document.getElementById('gamePanel').style.display = 'block'; document.getElementById('gameFeedback').textContent = '';
+    nextSurvival();
+  }
+  function nextSurvival() {
+    clearInterval(survivalInterval);
+    const available = survivalBank.filter(q => q.diff <= survivalDifficulty);
+    const q = available[Math.floor(Math.random() * available.length)];
+    document.getElementById('gameQuestion').textContent = q.q;
+    survivalAnswer = q.a.toString().trim().toLowerCase();
+    document.getElementById('gameAnswer').value = '';
+    survivalTimer = Math.max(5, 12 - survivalDifficulty);
+    document.getElementById('timer').textContent = survivalTimer;
+    survivalInterval = setInterval(() => {
+      survivalTimer--;
+      document.getElementById('timer').textContent = survivalTimer;
+      if (survivalTimer <= 0) {
+        survivalLives--;
+        document.getElementById('lives').textContent = survivalLives;
+        if (survivalLives <= 0) {
+          clearInterval(survivalInterval);
+          document.getElementById('gameFeedback').textContent = '💀 Game Over! Skor: ' + survivalScore;
+          document.getElementById('gamePanel').style.display = 'none';
+        } else { nextSurvival(); }
+      }
+    }, 1000);
+  }
+  function submitSurvival() {
+    const userAnswer = document.getElementById('gameAnswer').value.trim().toLowerCase();
+    if (userAnswer === survivalAnswer) {
+      survivalScore += survivalDifficulty * 10;
+      document.getElementById('score').textContent = survivalScore;
+      if (survivalScore % 50 === 0 && survivalDifficulty < 5) { survivalDifficulty++; }
+      nextSurvival();
+    } else {
+      survivalLives--;
+      document.getElementById('lives').textContent = survivalLives;
+      if (survivalLives <= 0) {
+        clearInterval(survivalInterval);
+        document.getElementById('gameFeedback').textContent = '💀 Game Over! Skor: ' + survivalScore;
+        document.getElementById('gamePanel').style.display = 'none';
+      } else { nextSurvival(); }
+    }
+  }
+</script>
+</div>
+
+</body>
+</html>
