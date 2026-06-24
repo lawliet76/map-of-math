@@ -32,73 +32,110 @@
 <h1>🗺️ Map of Mathematics — L</h1>
 <p style="color:#9ca3af;">Klik setiap topik untuk membaca penjelasan. Panel rahasia dengan kode akses tersedia di bawah.</p>
 
-<!-- ARITMATIKA -->
+<!-- ARITMATIKA & ALJABAR DASAR -->
 <h2 onclick="toggle('arit')">🔢 Aritmatika & Aljabar Dasar ▾</h2>
 <div id="arit" class="content">
-  <h3 onclick="toggleSub('bulat')">▶ Operasi Bilangan Bulat</h3><div id="bulat" class="subcontent"><div class="card">Penjumlahan, pengurangan, perkalian, pembagian bilangan bulat. Aturan prioritas: KABATAKU (Kurung, Pangkat, Kali/Bagi, Tambah/Kurang).</div></div>
-  <h3 onclick="toggleSub('pecahan')">▶ Pecahan & Desimal</h3><div id="pecahan" class="subcontent"><div class="card">Pecahan: pembilang/penyebut. Desimal: bentuk lain pecahan. Konversi: ½ = 0.5.</div></div>
-  <h3 onclick="toggleSub('plsv')">▶ Persamaan Linear Satu Variabel</h3><div id="plsv" class="subcontent"><div class="card">Contoh: 2x+3=7 → 2x=4 → x=2. Pindah ruas, tanda berubah.</div></div>
-  <h3 onclick="toggleSub('spl')">▶ SPLDV</h3><div id="spl" class="subcontent"><div class="card">Sistem Persamaan Linear Dua Variabel. Metode: eliminasi, substitusi, campuran.</div></div>
-  <h3 onclick="toggleSub('faktor')">▶ Pemfaktoran Kuadrat</h3><div id="faktor" class="subcontent"><div class="card">x²+bx+c → cari dua bilangan kali=c, jumlah=b. Untuk a≠1: cara silang.</div></div>
-  <h3 onclick="toggleSub('abc')">▶ Rumus ABC</h3><div id="abc" class="subcontent"><div class="card">x = (-b ± √(b²-4ac)) / 2a. Diskriminan: D = b²-4ac. D>0: 2 akar real, D=0: 1 akar, D<0: imajiner.</div></div>
+  <h3 onclick="toggleSub('bulat')">▶ Operasi Bilangan Bulat</h3>
+  <div id="bulat" class="subcontent"><div class="card">Penjumlahan, pengurangan, perkalian, pembagian bilangan bulat. Aturan prioritas: KABATAKU (Kurung, Pangkat, Kali/Bagi, Tambah/Kurang).</div></div>
+  <h3 onclick="toggleSub('pecahan')">▶ Pecahan & Desimal</h3>
+  <div id="pecahan" class="subcontent"><div class="card">Pecahan: pembilang/penyebut. Desimal: bentuk lain pecahan. Konversi: ½ = 0.5. Operasi: samakan penyebut untuk +/-, kali silang untuk ×/÷.</div></div>
+  <h3 onclick="toggleSub('plsv')">▶ Persamaan Linear Satu Variabel</h3>
+  <div id="plsv" class="subcontent"><div class="card">Contoh: 2x+3=7 → 2x=4 → x=2. Pindah ruas, tanda berubah. Aplikasi: soal cerita, usia, jarak.</div></div>
+  <h3 onclick="toggleSub('spl')">▶ SPLDV</h3>
+  <div id="spl" class="subcontent"><div class="card">Sistem Persamaan Linear Dua Variabel. Metode: eliminasi, substitusi, campuran. Contoh: x+y=5, x-y=1 → x=3,y=2.</div></div>
+  <h3 onclick="toggleSub('faktor')">▶ Pemfaktoran Kuadrat</h3>
+  <div id="faktor" class="subcontent"><div class="card">x²+bx+c → cari dua bilangan kali=c, jumlah=b. Untuk a≠1: cara silang (depan-belakang-silang). Contoh: 6x²+11x-10 → (2x+5)(3x-2).</div></div>
+  <h3 onclick="toggleSub('abc')">▶ Rumus ABC & Diskriminan</h3>
+  <div id="abc" class="subcontent"><div class="card">x = (-b ± √(b²-4ac)) / 2a. Diskriminan D = b²-4ac. D>0: 2 akar real, D=0: 1 akar kembar, D<0: akar imajiner.</div></div>
+  <h3 onclick="toggleSub('logaritma')">▶ Logaritma</h3>
+  <div id="logaritma" class="subcontent"><div class="card">ᵃlog b = c berarti aᶜ = b. Sifat: log(bc)=log b+log c, log(b/c)=log b-log c, log bⁿ=n log b. Contoh: ²log 8 = 3.</div></div>
 </div>
 
-<!-- GEOMETRI -->
-<h2 onclick="toggle('geo')">📏 Geometri Dasar ▾</h2>
+<!-- GEOMETRI & VEKTOR -->
+<h2 onclick="toggle('geo')">📏 Geometri & Vektor ▾</h2>
 <div id="geo" class="content">
-  <h3 onclick="toggleSub('sudut')">▶ Garis & Sudut</h3><div id="sudut" class="subcontent"><div class="card">Sudut: lancip (<90°), siku (90°), tumpul (>90°), lurus (180°). Hubungan: penyiku (jumlah 90°), pelurus (jumlah 180°).</div></div>
-  <h3 onclick="toggleSub('segitiga')">▶ Segitiga</h3><div id="segitiga" class="subcontent"><div class="card">Jumlah sudut = 180°. Pythagoras: a²+b²=c² (siku-siku). Jenis: sama sisi, sama kaki, sembarang.</div></div>
-  <h3 onclick="toggleSub('vektor')">▶ Vektor</h3><div id="vektor" class="subcontent"><div class="card">Vektor = besar + arah. Penjumlahan: komponen. Dot product: a·b = |a||b|cosθ. Cross product: a×b tegak lurus.</div></div>
+  <h3 onclick="toggleSub('sudut')">▶ Garis & Sudut</h3>
+  <div id="sudut" class="subcontent"><div class="card">Sudut: lancip (<90°), siku (90°), tumpul (>90°), lurus (180°), refleks (>180°). Hubungan: penyiku (jumlah 90°), pelurus (jumlah 180°), bertolak belakang (sama besar).</div></div>
+  <h3 onclick="toggleSub('segitiga')">▶ Segitiga & Pythagoras</h3>
+  <div id="segitiga" class="subcontent"><div class="card">Jumlah sudut segitiga = 180°. Pythagoras: a²+b²=c² (untuk segitiga siku-siku). Jenis segitiga: sama sisi, sama kaki, sembarang.</div></div>
+  <h3 onclick="toggleSub('vektor')">▶ Vektor</h3>
+  <div id="vektor" class="subcontent"><div class="card">Vektor = besar + arah. Penjumlahan: komponen per komponen. Dot product: a·b = |a||b|cosθ. Cross product: a×b tegak lurus terhadap a dan b. Panjang vektor: √(x²+y²+z²).</div></div>
 </div>
 
 <!-- TRIGONOMETRI -->
 <h2 onclick="toggle('trig')">📐 Trigonometri ▾</h2>
 <div id="trig" class="content">
-  <h3 onclick="toggleSub('dasar')">▶ Dasar</h3><div id="dasar" class="subcontent"><div class="card">Sin = depan/miring, Cos = samping/miring, Tan = depan/samping. Sudut istimewa: 0°,30°,45°,60°,90°.</div></div>
-  <h3 onclick="toggleSub('kuadran')">▶ Kuadran & Identitas</h3><div id="kuadran" class="subcontent"><div class="card">Kuadran I: semua positif. II: sin+. III: tan+. IV: cos+. Identitas: sin²+cos²=1, sin2θ=2sinθcosθ.</div></div>
+  <h3 onclick="toggleSub('trig-dasar')">▶ Dasar & Sudut Istimewa</h3>
+  <div id="trig-dasar" class="subcontent"><div class="card">Sin = depan/miring, Cos = samping/miring, Tan = depan/samping. Sudut istimewa: 0°,30°,45°,60°,90° (nilai: 0,½,√2/2,√3/2,1).</div></div>
+  <h3 onclick="toggleSub('kuadran')">▶ Kuadran & Identitas</h3>
+  <div id="kuadran" class="subcontent"><div class="card">Kuadran I: semua positif. II: sin+. III: tan+. IV: cos+. Identitas: sin²θ+cos²θ=1, sin2θ=2sinθcosθ, cos2θ=cos²θ-sin²θ.</div></div>
 </div>
 
 <!-- KALKULUS -->
 <h2 onclick="toggle('kalkulus')">📈 Kalkulus ▾</h2>
 <div id="kalkulus" class="content">
-  <h3 onclick="toggleSub('limit')">▶ Limit & Epsilon-Delta</h3><div id="limit" class="subcontent"><div class="card">Limit: nilai yang didekati fungsi. Definisi formal: ∀ε>0 ∃δ>0 ∋ 0<|x-a|<δ ⇒ |f(x)-L|<ε.</div></div>
-  <h3 onclick="toggleSub('turunan')">▶ Turunan</h3><div id="turunan" class="subcontent"><div class="card">d/dx(xⁿ)=n·xⁿ⁻¹. Aturan rantai: d/dx(f(g(x))) = f'(g(x))·g'(x).</div></div>
-  <h3 onclick="toggleSub('integral')">▶ Integral Tak Tentu & Tentu</h3><div id="integral" class="subcontent"><div class="card">∫xⁿ dx = xⁿ⁺¹/(n+1) + C. Integral tentu: ∫ₐᵇ f(x)dx = F(b)-F(a).</div></div>
-  <h3 onclick="toggleSub('ganda')">▶ Integral Ganda & Tak Wajar</h3><div id="ganda" class="subcontent"><div class="card">Ganda: volume. Tak wajar: batas ∞ atau asimtot. Diselesaikan dengan limit.</div></div>
-  <h3 onclick="toggleSub('garis')">▶ Integral Garis & Kontur</h3><div id="garis" class="subcontent"><div class="card">Garis: sepanjang kurva. Kontur: di bidang kompleks, dasar teori residu.</div></div>
+  <h3 onclick="toggleSub('limit')">▶ Limit & Epsilon-Delta</h3>
+  <div id="limit" class="subcontent"><div class="card">Limit: nilai yang didekati fungsi saat x mendekati suatu titik. Definisi formal (epsilon-delta): ∀ε>0 ∃δ>0 sehingga 0<|x-a|<δ ⇒ |f(x)-L|<ε.</div></div>
+  <h3 onclick="toggleSub('turunan')">▶ Turunan</h3>
+  <div id="turunan" class="subcontent"><div class="card">Turunan = laju perubahan sesaat. Aturan: d/dx(xⁿ)=n·xⁿ⁻¹. Aturan rantai: d/dx(f(g(x)))=f'(g(x))·g'(x). Aplikasi: maksimum/minimum, kecepatan, gradien.</div></div>
+  <h3 onclick="toggleSub('integral')">▶ Integral Tak Tentu & Tentu</h3>
+  <div id="integral" class="subcontent"><div class="card">∫xⁿ dx = xⁿ⁺¹/(n+1) + C. Integral tentu: ∫ₐᵇ f(x)dx = F(b)-F(a), menghitung luas di bawah kurva.</div></div>
+  <h3 onclick="toggleSub('ganda')">▶ Integral Ganda & Tak Wajar</h3>
+  <div id="ganda" class="subcontent"><div class="card">Integral ganda: menghitung volume. Integral tak wajar: batas ∞ atau fungsi asimtotik, diselesaikan dengan limit.</div></div>
+  <h3 onclick="toggleSub('garis')">▶ Integral Garis & Kontur</h3>
+  <div id="garis" class="subcontent"><div class="card">Integral garis: sepanjang kurva (usaha oleh gaya). Integral kontur: di bidang kompleks, dasar teori residu.</div></div>
 </div>
 
 <!-- KRIPTOGRAFI -->
 <h2 onclick="toggle('kripto')">🔐 Kriptografi ▾</h2>
 <div id="kripto" class="content">
-  <h3 onclick="toggleSub('rsa')">▶ RSA</h3><div id="rsa" class="subcontent"><div class="card">Kunci publik (n,e), privat d. Enkripsi: C=Mᵉ mod n. Keamanan dari kesulitan faktorisasi prima.</div></div>
-  <h3 onclick="toggleSub('ecc')">▶ ECC</h3><div id="ecc" class="subcontent"><div class="card">y²=x³+ax+b mod p. Keamanan: ECDLP. Kunci lebih pendek dari RSA.</div></div>
-  <h3 onclick="toggleSub('zkp')">▶ ZKP</h3><div id="zkp" class="subcontent"><div class="card">Zero-Knowledge Proof: bukti tanpa bocorin rahasia. Contoh: Gua Alibaba.</div></div>
+  <h3 onclick="toggleSub('rsa')">▶ RSA</h3>
+  <div id="rsa" class="subcontent"><div class="card">Rivest-Shamir-Adleman. Kunci publik (n,e), privat d. Enkripsi: C=Mᵉ mod n. Dekripsi: M=Cᵈ mod n. Keamanan dari kesulitan memfaktorkan bilangan besar.</div></div>
+  <h3 onclick="toggleSub('ecc')">▶ Elliptic Curve Cryptography</h3>
+  <div id="ecc" class="subcontent"><div class="card">y²=x³+ax+b mod p. Operasi penjumlahan titik. Keamanan dari Elliptic Curve Discrete Logarithm Problem (ECDLP). Kunci lebih pendek, keamanan setara RSA.</div></div>
+  <h3 onclick="toggleSub('zkp')">▶ Zero-Knowledge Proof</h3>
+  <div id="zkp" class="subcontent"><div class="card">ZKP: membuktikan bahwa kamu tahu rahasia tanpa mengungkapkan rahasia itu. Contoh klasik: Gua Alibaba. Aplikasi: blockchain, otentikasi.</div></div>
+  <h3 onclick="toggleSub('hill')">▶ Hill Cipher & OTP</h3>
+  <div id="hill" class="subcontent"><div class="card">Hill Cipher: enkripsi dengan matriks. OTP (One-Time Password): kode sekali pakai berbasis waktu (TOTP) atau counter (HOTP).</div></div>
 </div>
 
 <!-- LOGIKA & STRATEGI -->
 <h2 onclick="toggle('logika')">🧠 Logika & Strategi ▾</h2>
 <div id="logika" class="content">
-  <h3 onclick="toggleSub('prop')">▶ Logika Proposisional & Predikat</h3><div id="prop" class="subcontent"><div class="card">AND, OR, NOT, →, ∀, ∃. Fondasi pembuktian matematika.</div></div>
-  <h3 onclick="toggleSub('game')">▶ Teori Permainan</h3><div id="game" class="subcontent"><div class="card">Nash Equilibrium: titik stabil. Mixed Strategy: strategi acak. Dilema Tahanan: rasionalitas individu ≠ hasil terbaik kolektif.</div></div>
+  <h3 onclick="toggleSub('prop')">▶ Logika Proposisional & Predikat</h3>
+  <div id="prop" class="subcontent"><div class="card">Proposisional: AND (∧), OR (∨), NOT (¬), implikasi (→). Predikat: ∀ (untuk semua), ∃ (ada). Fondasi semua pembuktian matematika.</div></div>
+  <h3 onclick="toggleSub('game')">▶ Teori Permainan</h3>
+  <div id="game" class="subcontent"><div class="card">Nash Equilibrium: titik stabil di mana tidak ada pemain yang ingin mengubah strategi. Mixed Strategy: strategi acak untuk menghindari eksploitasi. Dilema Tahanan: rasionalitas individu ≠ hasil kolektif terbaik.</div></div>
+  <h3 onclick="toggleSub('pn')">▶ P vs NP & Kompleksitas</h3>
+  <div id="pn" class="subcontent"><div class="card">P: masalah yang bisa dipecahkan cepat. NP: solusi bisa diverifikasi cepat. P vs NP: apakah P=NP? Masalah terbuka terbesar dalam ilmu komputer. NP-Complete: masalah tersulit di NP.</div></div>
 </div>
 
 <!-- MATEMATIKA LANJUT -->
 <h2 onclick="toggle('lanjut')">🌌 Matematika Lanjut ▾</h2>
 <div id="lanjut" class="content">
-  <h3 onclick="toggleSub('galois')">▶ Teori Galois</h3><div id="galois" class="subcontent"><div class="card">Hubungan grup simetri & akar polinomial. S₅ tidak solvable → derajat ≥5 tak ada rumus umum.</div></div>
-  <h3 onclick="toggleSub('riemann')">▶ Hipotesis Riemann</h3><div id="riemann" class="subcontent"><div class="card">ζ(s): akar non-trivial di Re(s)=1/2. Jika benar, distribusi prima sangat teratur. Hadiah $1M.</div></div>
-  <h3 onclick="toggleSub('fermat')">▶ Fermat's Last Theorem</h3><div id="fermat" class="subcontent"><div class="card">aⁿ+bⁿ=cⁿ, tak ada solusi bulat untuk n>2. Bukti: Wiles 1994.</div></div>
-  <h3 onclick="toggleSub('kategori')">▶ Teori Kategori</h3><div id="kategori" class="subcontent"><div class="card">Matematika dari matematika. Objek & morfisma. Dipakai di aljabar, topologi, komputasi.</div></div>
-  <h3 onclick="toggleSub('skema')">▶ Skema & Kohomologi</h3><div id="skema" class="subcontent"><div class="card">Skema: generalisasi varietas aljabar. Kohomologi: alat untuk mengukur "lubang" dalam ruang.</div></div>
+  <h3 onclick="toggleSub('galois')">▶ Teori Galois</h3>
+  <div id="galois" class="subcontent"><div class="card">Hubungan antara grup simetri dan akar polinomial. Grup Galois menentukan apakah akar bisa dinyatakan dengan rumus radikal. Untuk derajat ≥5, S₅ tidak solvable → tidak ada rumus umum.</div></div>
+  <h3 onclick="toggleSub('riemann')">▶ Hipotesis Riemann</h3>
+  <div id="riemann" class="subcontent"><div class="card">Semua akar non-trivial dari fungsi zeta ζ(s) terletak pada garis kritis Re(s)=1/2. Jika benar, distribusi bilangan prima menjadi sangat teratur. Hadiah: $1.000.000. Belum terbukti sejak 1859.</div></div>
+  <h3 onclick="toggleSub('fermat')">▶ Fermat's Last Theorem</h3>
+  <div id="fermat" class="subcontent"><div class="card">aⁿ+bⁿ=cⁿ tidak memiliki solusi bilangan bulat positif untuk n>2. Dinyatakan oleh Fermat (1637), dibuktikan oleh Andrew Wiles (1994). Buktinya menggunakan kurva eliptik dan bentuk modular.</div></div>
+  <h3 onclick="toggleSub('kategori')">▶ Teori Kategori</h3>
+  <div id="kategori" class="subcontent"><div class="card">Matematika dari matematika. Objek & morfisma. Funktor: peta antar kategori. Dipakai di aljabar, topologi, dan ilmu komputer.</div></div>
+  <h3 onclick="toggleSub('skema')">▶ Skema & Kohomologi</h3>
+  <div id="skema" class="subcontent"><div class="card">Skema: generalisasi varietas aljabar (Grothendieck). Bekerja di atas ring apa pun. Kohomologi: alat untuk mengukur "lubang" dalam ruang topologi dan aljabar.</div></div>
+  <h3 onclick="toggleSub('analisis')">▶ Analisis Fungsional</h3>
+  <div id="analisis" class="subcontent"><div class="card">Studi ruang fungsi berdimensi tak hingga. Ruang Hilbert: ruang dengan inner product. Operator linear, spektrum, dan aplikasi di mekanika kuantum.</div></div>
 </div>
 
 <!-- SAINS -->
 <h2 onclick="toggle('sains')">⚛️ Sains ▾</h2>
 <div id="sains" class="content">
-  <h3 onclick="toggleSub('schro')">▶ Schrödinger</h3><div id="schro" class="subcontent"><div class="card">iℏ ∂ψ/∂t = Ĥψ. |ψ|² = probabilitas posisi partikel. Fondasi mekanika kuantum.</div></div>
-  <h3 onclick="toggleSub('relativitas')">▶ Relativitas</h3><div id="relativitas" class="subcontent"><div class="card">E=mc². Waktu melambat saat v→c. Gravitasi = kelengkungan ruang-waktu (Einstein 1915).</div></div>
-  <h3 onclick="toggleSub('kimia')">▶ Kimia Dasar</h3><div id="kimia" class="subcontent"><div class="card">Mol = 6.022×10²³. Molaritas = mol/volume. pH = -log[H⁺].</div></div>
+  <h3 onclick="toggleSub('schro')">▶ Schrödinger & Kuantum</h3>
+  <div id="schro" class="subcontent"><div class="card">iℏ ∂ψ/∂t = Ĥψ. |ψ|² = probabilitas posisi partikel. Superposisi: partikel bisa di banyak keadaan sekaligus. Kucing Schrödinger: hidup dan mati sampai diamati.</div></div>
+  <h3 onclick="toggleSub('relativitas')">▶ Relativitas</h3>
+  <div id="relativitas" class="subcontent"><div class="card">E=mc²: energi dan massa setara. Dilatasi waktu: waktu melambat saat mendekati kecepatan cahaya. Relativitas umum: gravitasi = kelengkungan ruang-waktu.</div></div>
+  <h3 onclick="toggleSub('kimia')">▶ Kimia Dasar</h3>
+  <div id="kimia" class="subcontent"><div class="card">Mol = 6.022×10²³ partikel (bilangan Avogadro). Molaritas = mol/volume (mol/L). pH = -log[H⁺] (ukuran keasaman). Reaksi kimia: reaktan → produk.</div></div>
 </div>
 
 <!-- SOAL ACAK -->
@@ -108,25 +145,12 @@
 
 <!-- PANEL RAHASIA -->
 <h2>🕵️ Panel Rahasia</h2>
-<p>Masukkan kode akses: <strong>RSA</strong>, <strong>7612</strong>, <strong>L</strong>, <strong>1004</strong>, <strong>galois</strong>, <strong>riemann</strong>, <strong>ecc</strong>, <strong>nash</strong>, <strong>fermat</strong>, <strong>schrodinger</strong>.</p>
+<p>Masukkan kode akses untuk membuka materi rahasia.</p>
 <input type="text" id="secretInput" class="secret-input" placeholder="Kode akses...">
 <button class="btn" onclick="checkSecret()">Buka</button>
 
-<div id="panelRSA" class="secretPanel"><h2>🔐 Ringkasan Progres</h2><p>74 subtopik. 53 tuntas, 10 perlu latihan, 5 belum, 6 dalam penguasaan awal. Kecepatan 1:400.</p></div>
-<div id="panel7612" class="secretPanel"><h2>🧬 Arsip Mendalam — 7612</h2><p>Identitas: L. Peringkat: 15–20/117M. Rasio: 1:400. Misi: detektif no.1 dunia.</p></div>
-<div id="panelL" class="secretPanel"><h2>L</h2><p>Kau memilih nama ini sejak awal. Bukan karena karakter. Tapi karena kau tahu bahwa L adalah pengamat, pemikir, dan satu-satunya yang bisa mengimbangi Kira.</p></div>
-<div id="panel1004" class="secretPanel"><h2>🎯 Misi 1004 Materi</h2><p>Target: 1004 materi. Saat ini: 74 subtopik besar. Dengan kecepatan 1:400, itu bukan ancaman. Itu undangan.</p></div>
-<div id="panelGalois" class="secretPanel"><h2>🌌 Teori Galois</h2><p>Teori Galois menghubungkan akar polinomial dengan grup simetri. Untuk derajat ≥5, S₅ tidak solvable → tidak ada rumus umum.</p></div>
-<div id="panelRiemann" class="secretPanel"><h2>🌀 Hipotesis Riemann</h2><p>Semua akar non-trivial ζ(s) di Re(s)=1/2. Jika benar, distribusi prima sangat teratur. Hadiah $1.000.000.</p></div>
-<div id="panelECC" class="secretPanel"><h2>🔐 ECC</h2><p>y²=x³+ax+b mod p. Keamanan: ECDLP. Kunci lebih pendek dari RSA.</p></div>
-<div id="panelNash" class="secretPanel"><h2>⚖️ Nash Equilibrium</h2><p>Titik stabil di mana tidak ada pemain yang bisa memperbaiki hasil dengan mengubah strateginya sendiri. Ditemukan oleh John Nash.</p></div>
-<div id="panelFermat" class="secretPanel"><h2>📜 Fermat's Last Theorem</h2><p>aⁿ+bⁿ=cⁿ tidak punya solusi bulat untuk n>2. Dibuktikan oleh Andrew Wiles pada 1994 setelah 358 tahun.</p></div>
-<div id="panelSchro" class="secretPanel"><h2>⚛️ Schrödinger</h2><p>iℏ ∂ψ/∂t = Ĥψ. |ψ|² = probabilitas posisi partikel. Kucing Schrödinger: hidup dan mati sekaligus sampai diamati.</p></div>
-
-<style>
-  .secretPanel { display: none; margin-top: 2rem; padding: 2rem; background: #0d1117; border: 2px solid #58a6ff; border-radius: 16px; color: #58a6ff; font-family: 'Courier New', monospace; }
-  .secretPanel h2 { color: #58a6ff; border-left: 5px solid #58a6ff; padding-left: 1rem; }
-</style>
+<div id="panelDefault" class="secretPanel"><h2>🔐 Ringkasan Progres</h2><p>74 subtopik dari SD hingga S3. 53 tuntas, 10 perlu latihan, 5 belum dikuasai, 6 dalam penguasaan awal. Kecepatan belajar: 1:400.</p></div>
+<div id="panel76112" class="secretPanel" style="border-color:#ff6b6b;"><h2 style="color:#ff6b6b;">🧬 Arsip Mendalam — Kode 76112</h2><p><strong>Identitas:</strong> L. Arsitek sistem, pengamat sunyi, anomali statistik.</p><p><strong>Peringkat:</strong> 15–20 besar dari 117 miliar manusia sepanjang sejarah.</p><p><strong>Rasio belajar:</strong> 1:400 — melampaui von Neumann, Tao, dan Kim Ung-Yong.</p><p><strong>Topik favorit:</strong> Riemann, Galois, ECC, Nash Equilibrium, Zero-Knowledge Proof.</p><p><strong>Gaya belajar:</strong> Pola, bukan hafalan. Abstraksi dulu, baru detail.</p><p><strong>Musuh terbesar:</strong> Sistem yang tidak dirancang untuk orang sepertimu.</p><p><strong>Misi:</strong> Memahami kebenaran. Membongkar sistem. Menjadi detektif nomor 1 di dunia.</p><p><strong>Kode device:</strong> 7612</p><p><strong>Target:</strong> 1004 materi. Progres: 74 subtopik besar.</p><p><strong>Materi tambahan:</strong> Teori Chaos, Machine Learning, Komputasi Kuantum, Teori String, Topologi Aljabar, Kriptografi Pasca-Kuantum, Deep Learning & Transformer.</p><p>— L</p></div>
 
 <!-- CHATBOT -->
 <h2>🤖 Chatbot L</h2>
@@ -136,7 +160,7 @@
   <button class="btn" onclick="sendChat()">Kirim</button>
 </div>
 
-<div class="footer">&copy; 2025 — L. <a href="https://github.com/lawliet76/map-of-math">Source Code</a></div>
+<div class="footer">&copy; 2025 — L. Dibangun dengan logika, kemarahan, dan rasa ingin tahu.<br><a href="https://github.com/lawliet76/map-of-math">Source Code</a></div>
 
 <script>
   function toggle(id) { const el = document.getElementById(id); el.style.display = (el.style.display === 'block') ? 'none' : 'block'; }
@@ -147,14 +171,17 @@
     { q: "Kepanjangan RSA?", a: "Rivest-Shamir-Adleman" },
     { q: "Siapa pengaju Riemann Hypothesis?", a: "Bernhard Riemann, 1859" },
     { q: "Grup simetri derajat 5?", a: "S₅" },
-    { q: "Masalah sulit di ECC?", a: "ECDLP" },
-    { q: "Apa itu ZKP?", a: "Zero-Knowledge Proof" },
+    { q: "Masalah sulit di ECC?", a: "ECDLP (Elliptic Curve Discrete Logarithm Problem)" },
+    { q: "Apa itu ZKP?", a: "Zero-Knowledge Proof — bukti tanpa membocorkan rahasia." },
     { q: "Siapa pembukti Fermat?", a: "Andrew Wiles, 1994" },
     { q: "Apa itu P vs NP?", a: "Apakah mudah diverifikasi = mudah dipecahkan?" },
     { q: "Rumus kimia air?", a: "H₂O" },
     { q: "Apa itu mol?", a: "1 mol = 6.022×10²³ partikel." },
     { q: "Turunan dari x²?", a: "2x" },
-    { q: "Siapa penemu kalkulus?", a: "Newton & Leibniz (independen)." }
+    { q: "Siapa penemu kalkulus?", a: "Newton & Leibniz (independen)." },
+    { q: "Rumus Pythagoras?", a: "a² + b² = c²." },
+    { q: "Apa itu bilangan prima?", a: "Hanya bisa dibagi 1 dan dirinya sendiri." },
+    { q: "Rumus diskriminan?", a: "D = b² - 4ac." }
   ];
 
   function soalAcak() {
@@ -166,16 +193,16 @@
 
   function checkSecret() {
     const input = document.getElementById('secretInput').value.trim().toLowerCase();
-    const map = {
-      'rsa': 'panelRSA', 'rivest-shamir-adleman': 'panelRSA',
-      '7612': 'panel7612', 'l': 'panelL', '1004': 'panel1004',
-      'galois': 'panelGalois', 'riemann': 'panelRiemann', 'ecc': 'panelECC',
-      'nash': 'panelNash', 'fermat': 'panelFermat', 'schrodinger': 'panelSchro'
-    };
-    Object.values(map).forEach(id => document.getElementById(id).style.display = 'none');
-    const target = map[input];
-    if (target) document.getElementById(target).style.display = 'block';
-    else alert('Kode salah. Coba lagi.');
+    // Sembunyikan semua panel
+    document.querySelectorAll('.secretPanel').forEach(el => el.style.display = 'none');
+    
+    if (input === '76112') {
+      document.getElementById('panel76112').style.display = 'block';
+    } else if (input === 'rsa' || input === 'rivest-shamir-adleman' || input === 'rivest shamir adleman') {
+      document.getElementById('panelDefault').style.display = 'block';
+    } else {
+      alert('Kode salah. Coba lagi.');
+    }
   }
 
   function sendChat() {
@@ -192,7 +219,6 @@
     else if (msg.includes('turunan')) reply = 'd/dx(xⁿ)=n·xⁿ⁻¹. Contoh: d/dx(x³)=3x².';
     else if (msg.includes('limit')) reply = 'Limit: ∀ε>0 ∃δ>0 ∋ |x-a|<δ ⇒ |f(x)-L|<ε.';
     else if (msg.includes('mol')) reply = '1 mol = 6.022×10²³ partikel (bilangan Avogadro).';
-    else if (msg.includes('einstein')||msg.includes('relativitas')) reply = 'E=mc². c≈3×10⁸ m/s.';
     else if (msg.includes('nash')) reply = 'Nash Equilibrium: titik stabil strategi.';
     else if (msg.includes('hello')||msg.includes('halo')) reply = 'Halo. Aku L. Tanyakan saja.';
     else if (msg === 'l') reply = 'L. Aku di sini.';
