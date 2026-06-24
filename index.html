@@ -161,3 +161,96 @@
 </script>
 </body>
 </html>
+<!-- GAME MATH CHALLENGE -->
+<h2>🎮 Math Challenge</h2>
+<p style="color:#9ca3af;">Pilih level, jawab sebelum waktu habis, kumpulkan skor!</p>
+
+<div style="margin:1rem 0;">
+  <button class="btn" onclick="startGame('easy')" style="background:#238636;">🟢 Easy</button>
+  <button class="btn" onclick="startGame('medium')" style="background:#d29922;">🟡 Medium</button>
+  <button class="btn" onclick="startGame('hard')" style="background:#da3633;">🔴 Hard</button>
+</div>
+
+<div id="gamePanel" class="soal-box" style="display:none;">
+  <p><strong>Skor:</strong> <span id="score">0</span> | <strong>Waktu:</strong> <span id="timer">10</span> detik</p>
+  <p id="gameQuestion" style="font-size:1.3rem; margin:1rem 0;"></p>
+  <input type="text" id="gameAnswer" class="chat-input" placeholder="Jawabanmu..." style="width:150px;">
+  <button class="btn" onclick="submitAnswer()">Jawab</button>
+  <p id="gameFeedback" style="margin-top:0.5rem;"></p>
+</div>
+
+<script>
+  let gameScore = 0;
+  let gameTimer = 10;
+  let gameInterval = null;
+  let currentAnswer = null;
+  let gameLevel = 'easy';
+
+  const questionBank = {
+    easy: [
+      { q: "7 + 8 = ?", a: "15" },
+      { q: "12 - 5 = ?", a: "7" },
+      { q: "3 × 4 = ?", a: "12" },
+      { q: "20 ÷ 4 = ?", a: "5" },
+      { q: "√64 = ?", a: "8" },
+      { q: "5² = ?", a: "25" }
+    ],
+    medium: [
+      { q: "∫ 2x dx = ?", a: "x² + C" },
+      { q: "Turunan dari x³?", a: "3x²" },
+      { q: "FPB dari 12 dan 18?", a: "6" },
+      { q: "sin 30° = ?", a: "0.5" },
+      { q: "2³ × 2² = ?", a: "32" },
+      { q: "Luas lingkaran r=7?", a: "154" }
+    ],
+    hard: [
+      { q: "∫ x² dx dari 0 ke 2?", a: "8/3" },
+      { q: "Apa kepanjangan RSA?", a: "Rivest-Shamir-Adleman" },
+      { q: "Siapa pengaju Riemann Hypothesis?", a: "Bernhard Riemann" },
+      { q: "Grup simetri derajat 5?", a: "S5" },
+      { q: "E = mc². c ≈ ? (dalam 10⁸ m/s)", a: "3" },
+      { q: "Akar non-trivial ζ(s) di garis?", a: "Re(s)=1/2" }
+    ]
+  };
+
+  function startGame(level) {
+    gameLevel = level;
+    gameScore = 0;
+    document.getElementById('score').textContent = '0';
+    document.getElementById('gamePanel').style.display = 'block';
+    document.getElementById('gameFeedback').textContent = '';
+    nextQuestion();
+  }
+
+  function nextQuestion() {
+    clearInterval(gameInterval);
+    const bank = questionBank[gameLevel];
+    const q = bank[Math.floor(Math.random() * bank.length)];
+    document.getElementById('gameQuestion').textContent = q.q;
+    currentAnswer = q.a.toString().trim().toLowerCase();
+    document.getElementById('gameAnswer').value = '';
+    gameTimer = gameLevel === 'easy' ? 15 : gameLevel === 'medium' ? 12 : 10;
+    document.getElementById('timer').textContent = gameTimer;
+    gameInterval = setInterval(() => {
+      gameTimer--;
+      document.getElementById('timer').textContent = gameTimer;
+      if (gameTimer <= 0) {
+        clearInterval(gameInterval);
+        document.getElementById('gameFeedback').textContent = '⏰ Waktu habis! Skor: ' + gameScore;
+        document.getElementById('gamePanel').style.display = 'none';
+      }
+    }, 1000);
+  }
+
+  function submitAnswer() {
+    const userAnswer = document.getElementById('gameAnswer').value.trim().toLowerCase();
+    if (userAnswer === currentAnswer) {
+      gameScore += gameLevel === 'easy' ? 10 : gameLevel === 'medium' ? 20 : 30;
+      document.getElementById('score').textContent = gameScore;
+      document.getElementById('gameFeedback').textContent = '✅ Benar!';
+      nextQuestion();
+    } else {
+      document.getElementById('gameFeedback').textContent = '❌ Salah. Coba lagi!';
+    }
+  }
+</script>
