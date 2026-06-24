@@ -5,38 +5,193 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Map of Mathematics — L</title>
   <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      background-color: #0d1117;
-      color: #c9d1d9;
-      font-family: 'Courier New', monospace;
-      padding: 2rem;
-      max-width: 800px;
+      background-color: #0b0f14;
+      color: #d1d5db;
+      font-family: 'Segoe UI', 'Inter', system-ui, sans-serif;
+      line-height: 1.7;
+      padding: 2.5rem 2rem;
+      max-width: 960px;
       margin: auto;
+      transition: 0.3s;
     }
-    h1 { color: #58a6ff; }
-    h2 { color: #3fb950; margin-top: 2rem; }
-    ul { line-height: 1.8; }
-    .footer { margin-top: 3rem; font-size: 0.8rem; color: #8b949e; }
+    h1 {
+      font-size: 2.8rem;
+      color: #7ee081;
+      border-bottom: 2px solid #2d3a2c;
+      padding-bottom: 0.6rem;
+      margin-bottom: 1rem;
+    }
+    .subtitle { color: #9ca3af; margin-bottom: 2rem; }
+    h2 {
+      font-size: 1.6rem;
+      color: #86b8e5;
+      margin: 2rem 0 0.8rem;
+      border-left: 5px solid #86b8e5;
+      padding-left: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.2rem;
+      margin: 1rem 0 2rem;
+    }
+    .card {
+      background: #161b22;
+      border: 1px solid #2d3748;
+      border-radius: 14px;
+      padding: 1.3rem;
+      transition: 0.2s;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.4);
+    }
+    .card:hover { background: #1c2330; border-color: #4b6b8f; transform: translateY(-3px); }
+    .card strong { display: block; font-size: 1.2rem; margin-bottom: 0.5rem; color: #e6edf3; }
+    .card ul { list-style: none; padding: 0; color: #b7bdc8; }
+    .card li { padding: 0.15rem 0; }
+
+    .tracker-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 0.6rem;
+      margin: 1rem 0 2rem;
+    }
+    .tracker-item {
+      background: #161b22;
+      border: 1px solid #2d3748;
+      border-radius: 10px;
+      padding: 0.7rem 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      cursor: pointer;
+      user-select: none;
+    }
+    .tracker-item.checked { background: #1a2e1a; border-color: #2ea043; }
+    .tracker-item input { display: none; }
+
+    .soal-box {
+      background: #161b22;
+      border: 1px solid #2d3748;
+      border-radius: 12px;
+      padding: 1.2rem;
+      margin: 1rem 0;
+    }
+    .btn {
+      background: #238636;
+      color: white;
+      border: none;
+      padding: 0.4rem 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 0.9rem;
+    }
+    .btn:hover { background: #2ea043; }
+    .jawaban { display: none; margin-top: 0.5rem; color: #7ee081; }
+
+    #secretPanel {
+      display: none;
+      margin-top: 3rem;
+      padding: 2rem;
+      background: #0d1117;
+      border: 2px solid #58a6ff;
+      border-radius: 16px;
+      color: #58a6ff;
+      font-family: 'Courier New', monospace;
+    }
+    #secretPanel h2 { color: #58a6ff; border-left-color: #58a6ff; }
+    .secret-input {
+      background: #161b22;
+      border: 1px solid #3b82f6;
+      color: #c9d1d9;
+      padding: 0.4rem 0.8rem;
+      border-radius: 8px;
+      margin-right: 0.5rem;
+    }
+
+    hr { border: none; border-top: 1px solid #2d3748; margin: 3rem 0 1.5rem; }
+    .footer { text-align: center; font-size: 0.85rem; color: #6b7280; }
+    .footer a { color: #86b8e5; text-decoration: none; }
   </style>
 </head>
 <body>
 
 <h1>🗺️ Map of Mathematics</h1>
-<p>Disusun oleh <strong>L</strong>.</p>
+<p class="subtitle">Disusun oleh <strong>L</strong> — dari SD sampai S3, dari aritmatika sampai Riemann.</p>
 
-<h2>📐 Kalkulus</h2>
-<ul><li>Limit, Turunan, Integral</li></ul>
+<div class="card-grid">
+  <div class="card"><strong>📐 Kalkulus</strong><ul><li>Limit & Epsilon-Delta</li><li>Turunan</li><li>Integral Tak Tentu & Tentu</li><li>Integral Ganda & Tak Wajar</li></ul></div>
+  <div class="card"><strong>🔐 Kriptografi</strong><ul><li>RSA, ECC, ZKP</li><li>Hill Cipher & OTP</li><li>Modulo & Aritmatika Modular</li></ul></div>
+  <div class="card"><strong>🧠 Logika & Strategi</strong><ul><li>Logika Proposisional & Predikat</li><li>Teori Permainan</li><li>Nash Equilibrium</li></ul></div>
+  <div class="card"><strong>🌌 Matematika Lanjut</strong><ul><li>Teori Galois</li><li>Hipotesis Riemann</li><li>Fermat's Last Theorem</li><li>Skema & Kohomologi</li></ul></div>
+  <div class="card"><strong>📏 Aljabar & Geometri</strong><ul><li>Aljabar Abstrak</li><li>Topologi Dasar</li><li>Pythagoras & Vektor</li></ul></div>
+  <div class="card"><strong>⚛️ Sains & Alam Semesta</strong><ul><li>Schrödinger & Kuantum</li><li>Relativitas (E=mc²)</li><li>Kimia Dasar (Mol, pH)</li></ul></div>
+  <div class="card"><strong>⚙️ Tools & Kode</strong><ul><li>Hex, Biner, ASCII</li><li>Enkripsi & Dekripsi</li><li>Kode Buatan Sendiri</li></ul></div>
+</div>
 
-<h2>🔐 Kriptografi</h2>
-<ul><li>RSA, ECC, ZKP</li></ul>
+<h2>📊 Progress Tracker</h2>
+<p style="color:#9ca3af; margin-bottom:1rem;">Centang topik yang sudah kamu kuasai.</p>
+<div class="tracker-grid" id="trackerGrid"></div>
 
-<h2>🧠 Logika & Strategi</h2>
-<ul><li>Proposisional, Predikat, Game Theory</li></ul>
+<h2>📝 Latihan Soal</h2>
+<div class="soal-box"><p><strong>1.</strong> Berapa hasil integral dari ∫ 3x² dx?</p><button class="btn" onclick="document.getElementById('j1').style.display='block'">Lihat Jawaban</button><p id="j1" class="jawaban">x³ + C</p></div>
+<div class="soal-box"><p><strong>2.</strong> Apa kepanjangan dari RSA?</p><button class="btn" onclick="document.getElementById('j2').style.display='block'">Lihat Jawaban</button><p id="j2" class="jawaban">Rivest–Shamir–Adleman</p></div>
+<div class="soal-box"><p><strong>3.</strong> Siapa yang mengajukan Hipotesis Riemann?</p><button class="btn" onclick="document.getElementById('j3').style.display='block'">Lihat Jawaban</button><p id="j3" class="jawaban">Bernhard Riemann, 1859</p></div>
 
-<h2>🌌 Matematika Lanjut</h2>
-<ul><li>Riemann, Galois, Fermat</li></ul>
+<h2>🕵️ Fitur Rahasia</h2>
+<p>Ketik <strong>L</strong> lalu tekan Enter untuk mengakses panel rahasia.</p>
+<input type="text" id="secretInput" class="secret-input" placeholder="Ketik kode rahasia...">
+<button class="btn" onclick="checkSecret()">Buka</button>
 
-<div class="footer">&copy; L</div>
+<div id="secretPanel">
+  <h2>🔐 Anda telah mengakses panel rahasia.</h2>
+  <p>Hanya sedikit yang tahu bahwa semua ini dimulai dari kemarahan yang diubah menjadi kecepatan.</p>
+  <p>Rasio belajar: <strong>1:400</strong>. Kecepatanmu adalah fakta, bukan opini.</p>
+  <p>— L</p>
+</div>
+
+<hr>
+<div class="footer">
+  &copy; 2025 — L. Dibangun dengan logika, kemarahan, dan rasa ingin tahu.<br>
+  <a href="https://github.com/lawliet76/map-of-math">Source Code</a>
+</div>
+
+<script>
+  const topics = [
+    "Limit Epsilon-Delta", "Turunan", "Integral Tak Tentu", "Integral Ganda",
+    "RSA", "ECC", "ZKP", "Hill Cipher",
+    "Logika Proposisional", "Teori Permainan", "Nash Equilibrium",
+    "Teori Galois", "Hipotesis Riemann", "Fermat", "Skema",
+    "Aljabar Abstrak", "Topologi", "Vektor", "Pythagoras",
+    "Schrödinger", "Relativitas", "Kimia Dasar"
+  ];
+
+  const grid = document.getElementById('trackerGrid');
+  topics.forEach(t => {
+    const key = 'tracker_' + t.replace(/\s+/g, '_');
+    const div = document.createElement('div');
+    div.className = 'tracker-item' + (localStorage.getItem(key) === 'true' ? ' checked' : '');
+    div.innerHTML = '<input type="checkbox" ' + (localStorage.getItem(key) === 'true' ? 'checked' : '') + '> ' + t;
+    div.addEventListener('click', function(e) {
+      const isChecked = !this.classList.contains('checked');
+      this.classList.toggle('checked', isChecked);
+      localStorage.setItem(key, isChecked);
+    });
+    grid.appendChild(div);
+  });
+
+  function checkSecret() {
+    const input = document.getElementById('secretInput').value;
+    if (input === 'L' || input === 'l') {
+      document.getElementById('secretPanel').style.display = 'block';
+    } else {
+      alert('Kode salah. Coba lagi.');
+    }
+  }
+</script>
 
 </body>
 </html>
