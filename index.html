@@ -253,4 +253,109 @@
       document.getElementById('gameFeedback').textContent = '❌ Salah. Coba lagi!';
     }
   }
+</script><!-- GAME MATH CHALLENGE - SURVIVAL MODE -->
+<h2>🎮 Math Challenge — Survival Mode</h2>
+<p style="color:#9ca3af;">Jawab terus sampai nyawa habis! Skor makin tinggi makin sulit.</p>
+
+<button class="btn" onclick="startSurvival()" style="background:#da3633;">🔥 Mulai Survival</button>
+
+<div id="gamePanel" class="soal-box" style="display:none;">
+  <p><strong>Skor:</strong> <span id="score">0</span> | <strong>❤️ Nyawa:</strong> <span id="lives">3</span> | <strong>⏱️ Waktu:</strong> <span id="timer">10</span>s</p>
+  <p id="gameQuestion" style="font-size:1.3rem; margin:1rem 0;"></p>
+  <input type="text" id="gameAnswer" class="chat-input" placeholder="Jawabanmu..." style="width:150px;">
+  <button class="btn" onclick="submitSurvival()">Jawab</button>
+  <p id="gameFeedback" style="margin-top:0.5rem;"></p>
+</div>
+
+<script>
+  let survivalScore = 0;
+  let survivalLives = 3;
+  let survivalTimer = 10;
+  let survivalInterval = null;
+  let survivalAnswer = null;
+  let survivalDifficulty = 1;
+
+  const survivalBank = [
+    // Easy (difficulty 1-2)
+    { q: "7 + 8 = ?", a: "15", diff: 1 },
+    { q: "12 - 5 = ?", a: "7", diff: 1 },
+    { q: "3 × 4 = ?", a: "12", diff: 1 },
+    { q: "√64 = ?", a: "8", diff: 1 },
+    { q: "5² = ?", a: "25", diff: 1 },
+    { q: "FPB 12 dan 18?", a: "6", diff: 2 },
+    { q: "sin 30° = ?", a: "0.5", diff: 2 },
+    { q: "2³ × 2² = ?", a: "32", diff: 2 },
+    { q: "∫ 2x dx = ?", a: "x² + C", diff: 2 },
+    // Medium (difficulty 3-4)
+    { q: "Turunan x³ = ?", a: "3x²", diff: 3 },
+    { q: "∫ x² dx 0→2 = ?", a: "8/3", diff: 3 },
+    { q: "RSA kepanjangan?", a: "Rivest-Shamir-Adleman", diff: 3 },
+    { q: "Siapa pengaju Riemann?", a: "Bernhard Riemann", diff: 4 },
+    { q: "Grup simetri derajat 5?", a: "S5", diff: 4 },
+    { q: "Re(s) kritis ζ(s)?", a: "1/2", diff: 4 }
+  ];
+
+  function startSurvival() {
+    survivalScore = 0;
+    survivalLives = 3;
+    survivalDifficulty = 1;
+    document.getElementById('score').textContent = '0';
+    document.getElementById('lives').textContent = '3';
+    document.getElementById('gamePanel').style.display = 'block';
+    document.getElementById('gameFeedback').textContent = '';
+    nextSurvival();
+  }
+
+  function nextSurvival() {
+    clearInterval(survivalInterval);
+    const available = survivalBank.filter(q => q.diff <= survivalDifficulty);
+    const q = available[Math.floor(Math.random() * available.length)];
+    document.getElementById('gameQuestion').textContent = q.q;
+    survivalAnswer = q.a.toString().trim().toLowerCase();
+    document.getElementById('gameAnswer').value = '';
+    survivalTimer = Math.max(5, 12 - survivalDifficulty);
+    document.getElementById('timer').textContent = survivalTimer;
+    survivalInterval = setInterval(() => {
+      survivalTimer--;
+      document.getElementById('timer').textContent = survivalTimer;
+      if (survivalTimer <= 0) {
+        survivalLives--;
+        document.getElementById('lives').textContent = survivalLives;
+        document.getElementById('gameFeedback').textContent = '⏰ Waktu habis! ❤️-' + 1;
+        if (survivalLives <= 0) {
+          clearInterval(survivalInterval);
+          document.getElementById('gameFeedback').textContent = '💀 Game Over! Skor akhir: ' + survivalScore;
+          document.getElementById('gamePanel').style.display = 'none';
+        } else {
+          nextSurvival();
+        }
+      }
+    }, 1000);
+  }
+
+  function submitSurvival() {
+    const userAnswer = document.getElementById('gameAnswer').value.trim().toLowerCase();
+    if (userAnswer === survivalAnswer) {
+      survivalScore += survivalDifficulty * 10;
+      document.getElementById('score').textContent = survivalScore;
+      document.getElementById('gameFeedback').textContent = '✅ Benar!';
+      if (survivalScore % 50 === 0 && survivalDifficulty < 5) {
+        survivalDifficulty++;
+        document.getElementById('gameFeedback').textContent += ' ⬆️ Difficulty naik ke ' + survivalDifficulty + '!';
+      }
+      nextSurvival();
+    } else {
+      survivalLives--;
+      document.getElementById('lives').textContent = survivalLives;
+      document.getElementById('gameFeedback').textContent = '❌ Salah! ❤️-' + 1;
+      if (survivalLives <= 0) {
+        clearInterval(survivalInterval);
+        document.getElementById('gameFeedback').textContent = '💀 Game Over! Skor akhir: ' + survivalScore;
+        document.getElementById('gamePanel').style.display = 'none';
+      } else {
+        nextSurvival();
+      }
+    }
+  }
 </script>
+
